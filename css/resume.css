@@ -1,0 +1,55 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	max-width: 100%;
+}
+
+aside{
+	position: fixed;
+	right: 0;
+	top: 238.5px;
+	height: 80px;
+	padding-right: 25px;
+}
+
+aside a{
+	width: 10px;
+	height: 10px;
+	background: url(images/);
+}
+
+aside .selected{
+	background: url(images/);
+}
+
+aside a b{
+	display: block;
+	position: absolute;
+	right: 40px;
+	width: 40px;
+}
+
+ul,li{
+	list-style-type: none;
+}
+
+.left{
+	float: left;
+}
+
+.right{
+	float: right;
+}
+
+.logo{
+	margin-left: 50px;
+}
+
+.logo img{
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}

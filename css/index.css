@@ -1,3 +1,8 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
 body{
 	background-color: #e0e0e0;
 	font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -7,31 +12,42 @@ article,header,footer,.main,section{
 	display: block;	
 }
 
+a{
+	text-decoration: none;
+}
+
 header,header a:link,header a:visited{
 	color: #fff;
 }
 
 .container{
-	width: 970px;
+	width: 1030px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 header{
+	width: 1030px;
+	height: 130px;
+	padding: 30px 45px;
 	background-color: #333;
 }
 
-.header-qrcode,address{
+.left{
 	float: left;
 }
 
-.header-qrcode img{
+.right{
+	float: right;
+}
+
+
+.header-qrcode{
 	width: 130px;
 	height: 130px;
 }
-
-.title{
-	float: right;
+.header-qrcode img{
+	width: 100%;
 }
 
 .title h1{
@@ -48,6 +64,34 @@ header{
 	line-height: 1
 }
 
+address{
+	margin-left:15px;
+}
+
 address ul{
 	list-style-type: none;
+}
+
+address ul li{
+	padding: 4px 4px 4px 28px;
+}
+
+.content-email:before{
+
+}
+
+.content-wechat:before{
+	
+}
+
+.content-weibo:before{
+	
+}
+
+.content-github:before{
+	
+}
+
+.content-blog:before{
+	
 }

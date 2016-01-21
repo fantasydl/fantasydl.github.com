@@ -2,46 +2,39 @@
 	margin: 0;
 	padding: 0;
 }
-
 body{
 	background-color: #e0e0e0;
 	font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-
 article,header,footer,.main,section{
 	display: block;	
 }
-
 a{
 	text-decoration: none;
 }
-
 header,header a:link,header a:visited{
 	color: #fff;
 }
-
 .container{
 	width: 1030px;
 	margin-left: auto;
 	margin-right: auto;
 }
-
 header{
-	width: 1030px;
+	width: 940px;
 	height: 130px;
 	padding: 30px 45px;
 	background-color: #333;
 }
-
 .left{
 	float: left;
 }
-
 .right{
 	float: right;
 }
-
-
+.clear{
+	clear: both;
+}
 .header-qrcode{
 	width: 130px;
 	height: 130px;
@@ -54,44 +47,46 @@ header{
 	font-size: 72px;
 	padding: 5px 0;
 }
-
 .title h2{
 	font-size: 20px;
 }
-
 .title h1,.title h2{
 	margin: 5px 0;
 	line-height: 1
 }
-
 address{
 	margin-left:15px;
 }
-
 address ul{
 	list-style-type: none;
 }
-
 address ul li{
 	padding: 4px 4px 4px 28px;
+	font-style: normal; 
 }
-
-.content-email:before{
-
+.main-content{
+	display: block;
+	padding-bottom: 40px;
+	background-color: #fff;
 }
-
-.content-wechat:before{
-	
+article{
+	padding: 20px 5px 0 15px;
 }
-
-.content-weibo:before{
-	
+.part{
+	margin-bottom: 30px;
 }
-
-.content-github:before{
-	
+.title-h{
+	display: inline-block;
+	overflow-y: hidden;
 }
-
-.content-blog:before{
-	
+.title-en{
+	clear: left;
+	font-variant: small-caps;
+}
+.art-main{
+	width: 480px;
+	border-top: 4px solid #000;
+}
+.part-title{
+	margin:10px 0 0 10px;
 }

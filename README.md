@@ -1,6 +1,6 @@
 # fantasydl.github.com
 My Online Resume
 
-[fantasydl.github.com] [1]
+[fantasydl.github.io] [1]
 
-[1]:http://fantasydl.github.com/  "resume"
+[1]:http://fantasydl.github.io/  "resume"

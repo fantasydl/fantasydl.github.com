@@ -3,19 +3,25 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>许谦 - 个人简历</title>
+		<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css">
 		<link rel="stylesheet" type="text/css" href="css/resume.css">
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="js/jquery.fullPage.min.js"></script>
+		<script type="text/javascript" src="js/resume.js"></script>
 	</head>
 	<body>
 		<aside>
-			<a href="#page1" class="selected"><b>首页</b></a>
-			<a href="#page2"><b></b></a>
-			<a href="#page3"><b></b></a>
-			<a href="#page4"><b></b></a>
+			<ul id="menu">
+				<li data-menuanchor="page1" class="active"><a href="#page1">1</a><b>第一屏</b></li>
+				<li data-menuanchor="page2"><a href="#page2">2</a><b>第二屏</b></li>
+				<li data-menuanchor="page3"><a href="#page3">3</a><b>第三屏</b></li>
+				<li data-menuanchor="page4"><a href="#page4">4</a><b>第四屏</b></li>
+			</ul>
 		</aside>
 		<header>
 			<div class="logo left">
 				<div class="logo-img left">
-					<img src="">
+					<img src="images/mypic.jpg" alt="头像">
 				</div>
 				<div class="logo-p left">
 					<p>许谦</p>
@@ -32,10 +38,18 @@
 			</nav>
 		</header>
 		<div id="dowebok">
-			<div class="section one active"></div>
-			<div class="section two"></div>
-			<div class="section three"></div>
-			<div class="section four"></div>
+			<div class="section one active">
+				1111
+			</div>
+			<div class="section two">
+				2222
+			</div>
+			<div class="section three">
+				3333
+			</div>
+			<div class="section four">
+				4444
+			</div>
 		</div>
 	</body>
 </html>

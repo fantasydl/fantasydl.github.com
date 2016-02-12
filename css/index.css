@@ -163,12 +163,17 @@ dt,dd{
 	color: #fff;
 }		
 .list-content li{
+	position: relative;
+	margin-left: 15px;
 	margin-bottom: 5px;
 	font-weight: 600;
 	line-height: 1.3;
 }
 .list-content i{
-	margin-right: 10px;
+	position: absolute;
+	margin-top: 2px;
+	margin-left: -18px;
+	line-height: 1.3;
 }
 strong{
 	color: teal;
@@ -183,7 +188,7 @@ h4 strong{
 	display: none;
 	position: fixed;
 	right: 15px;
-	top: 550px;
+	bottom: 150px;
 	background-color: transparent;
 	cursor: pointer;
 }

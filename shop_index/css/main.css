@@ -382,9 +382,20 @@ header nav li .clist dl dd a:hover{
 	width: 183px;
 	height: 200px;
 }
+.main section .acontent ul li a{
+	display: block;
+	width: 183px;
+	height: 164px;
+	overflow: hidden;
+}
 .main section .acontent ul li img{
 	width: 183px;
 	height: 164px;
+}
+.main section .acontent ul li img:hover{
+	-webkit-animation: myScale .6s;
+	-o-animation: myScale .6s;
+	animation: myScale .6s;
 }
 .main section .acontent ul li span{
 	display: block;
@@ -414,4 +425,23 @@ footer{
 	height: 50px;
 	line-height: 50px;
 	text-align: center;
+}
+
+@keyframes myScale
+{
+	0%	{transform: scale(1);}
+	50%	{transform: scale(1.2);}
+	100%{transform: scale(1);}
+}
+@-webkit-keyframes myScale
+{
+	0%	{transform: scale(1);}
+	50%	{transform: scale(1.2);}
+	100%{transform: scale(1);}
+}
+@-o-keyframes myScale
+{
+	0%	{transform: scale(1);}
+	50%	{transform: scale(1.2);}
+	100%{transform: scale(1);}
 }

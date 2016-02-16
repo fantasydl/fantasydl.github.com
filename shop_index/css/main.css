@@ -23,16 +23,16 @@ header{
 	transform: scale(1);
 	-webkit-transform: scale(1);
 	-ms-transform: scale(1);
-	transition: transform .6s ease-in-out;
-	-webkit-transition: transform .6s ease-in-out;
+	transition: all .6s ease-in-out;
+	-webkit-transition: all .6s ease-in-out;
 }
 .title .logo h1:hover{
 	color: #000;
 	transform: scale(.7);
 	-webkit-transform: scale(.7);
 	-ms-transform: scale(.7);
-	transition: transform .6s ease-in-out;
-	-webkit-transition: transform .6s ease-in-out;
+	transition: all .6s ease-in-out;
+	-webkit-transition: all .6s ease-in-out;
 }
 .title input{
 	float: left;

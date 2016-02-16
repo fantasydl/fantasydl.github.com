@@ -20,7 +20,7 @@ function mAnimate(obj,json,fn){
 				flag = false;
 			}
 			if(attr == 'opacity') {
-				obj.style.filter = 'alpha:(opacity' + (iCur + speed) +')';
+				obj.style.filter = 'alpha:(opacity=' + (iCur + speed) +')';
 				obj.style.opacity = (iCur + speed)/100;
 			}else{
 				obj.style[attr] = iCur + speed + 'px';

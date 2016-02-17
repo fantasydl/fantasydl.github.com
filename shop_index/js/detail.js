@@ -62,7 +62,7 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$("#look-bg a img").bind("click",function(){
 		var pUrl = $("#s-bg-pic").attr("src");
-		var height=$("body").height();
+		var height = $(window).height() > $("body").height() ? $(window).height() : $("body").height();
 		$(".bg-pic").css({"height":height});
 		$("#bg-pic-i").attr({"src":pUrl});
 		$(".bg-pic").css({"z-index":"2"}).animate({opacity:"1"},400);

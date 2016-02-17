@@ -197,7 +197,10 @@
 	z-index: -2;
 }
 .bg-pic div{
-	padding: 60px 0 0 300px;
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	transform: translateX(-50%);
 }
 .bg-pic div img{
 	width: 520px;

@@ -67,8 +67,21 @@ address ul li{
 	padding: 4px 4px 4px 28px;
 	font-style: normal; 
 }
+address a{
+	color: #FFF;
+	transition: all .3s ease-in-out;
+	-webkit-transition: all .3s ease-in-out;
+	-ms-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+}
 address a:hover{
 	color:#A3D3D1;
+	transition: all .3s ease-in-out;
+	-webkit-transition: all .3s ease-in-out;
+	-ms-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
 }
 .main-content{
 	display: block;

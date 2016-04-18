@@ -10,8 +10,8 @@
 			margin: 0;
 		}
 		html,body {
-			width: 100%;
-			height: 100%;
+			width: 95%;
+			height: 95%;
 			background-color: #000;
 			color: #FFF;
 			font-size: 17px;
@@ -58,17 +58,19 @@
 		// 			}
 		// 		}
 		// 	},false); 
-			function msedown (event) {
-				var node = '<li>' + event.changedTouches[0].clientX + '&&&' + event.changedTouches[0].screenX + '</li>';
-				$('#testList').append(node);
 
-				$('#testBlock').on('touchmove',function(event){
-        			msemove(event);
+			function msedown (event) {
+				var startX = event.changedTouches[0].clientX;
+
+				$('#testBlock').unbind('touchmove');
+				$('#testBlock').bind('touchmove',function(event){
+        			msemove(event,startX);
     			});
 			}
 
-			function msemove (event) {
-				var node = '<li>' + event.originalEvent.changedTouches[0].clientX + '&&&' + event.originalEvent.changedTouches[0].screenX + '</li>';
+			function msemove (event,posX) {
+				var moveX = event.originalEvent.changedTouches[0].clientX - posX;
+				var node = '<li>' + posX + '  to  ' + event.originalEvent.changedTouches[0].clientX + '</li>';
 				$('#testList').append(node);
 			}
 	</script>

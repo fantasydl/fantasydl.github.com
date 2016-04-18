@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<title>测试触摸屏</title>
+	<style type="text/css">
+		html,body {
+			width: 80%;
+			height: 80%;
+		}
+		div {
+			width: 100%;
+			height: 100%;
+			background-color: #000;
+			color: #FFF;
+			font-size: 17px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function  () {
+			var testBlock = document.getElementById('testBlock'),
+				testList = document.getElementById('testList');
+
+			testBlock.addEventListener('touchstart',function(event){
+				if(event.touches.length == 1){
+					var node = document.createElement('li');
+					node.innerHTML = event.touches[0].clientX + '&&&' + event.touches[0].screenX;
+					testList.appendChild(node);
+					console.log(event.touches[0]);
+				}else{
+					for(var i = 0;i < event.touches.length;i++){
+						var node = document.createElement('li');
+						node.innerHTML = event.touches[0].clientX + '&&&' + event.touches[0].screenX;
+						testList.appendChild(node);
+						console.log(event.touches[0]);
+					}	
+				}
+			},false); 
+
+			testBlock.addEventListener('touchmove',function(event){
+				if(event.touches.length == 1){
+					var node = document.createElement('li');
+					node.innerHTML = event.touches[0].clientX + '&&&' + event.touches[0].screenX;
+					testList.appendChild(node);
+					console.log(event.touches[0]);
+				}else{
+					for(var i = 0;i < event.touches.length;i++){
+						var node = document.createElement('li');
+						node.innerHTML = event.touches[0].clientX + '&&&' + event.touches[0].screenX;
+						testList.appendChild(node);
+						console.log(event.touches[0]);
+					}
+				}
+			},false); 
+		}
+	</script>
+</head>
+<body>
+	<div id="testBlock">
+		<ul id="testList"></ul>
+	</div>
+</body>
+</html>

@@ -26,9 +26,9 @@
 				}else{
 					for(var i = 0;i < event.touches.length;i++){
 						var node = document.createElement('li');
-						node.innerHTML = event.touches[0].clientX + '&&&' + event.touches[0].screenX;
+						node.innerHTML = event.touches[i].clientX + '&&&' + event.touches[i].screenX;
 						testList.appendChild(node);
-						console.log(event.touches[0]);
+						console.log(event.touches[i]);
 					}	
 				}
 			},false); 
@@ -42,9 +42,9 @@
 				}else{
 					for(var i = 0;i < event.touches.length;i++){
 						var node = document.createElement('li');
-						node.innerHTML = event.touches[0].clientX + '&&&' + event.touches[0].screenX;
+						node.innerHTML = event.touches[i].clientX + '&&&' + event.touches[i].screenX;
 						testList.appendChild(node);
-						console.log(event.touches[0]);
+						console.log(event.touches[i]);
 					}
 				}
 			},false); 

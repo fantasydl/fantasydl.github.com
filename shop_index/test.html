@@ -13,7 +13,7 @@
 			font-size: 17px;
 		}
 	</style>
-	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.map"></script>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script type="text/javascript">
 		// window.onload = function  () {
 		// 	var testList = document.getElementById('testList');
@@ -62,7 +62,6 @@
 				var node = '<li>' + event.originalEvent.changedTouches[0].clientX + '&&&' + event.originalEvent.changedTouches[0].screenX + '</li>';
 				$('#testList').append(node);
 			}
-		}
 	</script>
 </head>
 <body ontouchstart="msedown(event)">

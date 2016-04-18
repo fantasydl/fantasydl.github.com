@@ -91,8 +91,6 @@
 			    var mseNowX = event.originalEvent.changedTouches[0].clientX,
 			        mseMoveDis = mseNowX - posX,
 			        screenWidth = $(document).width();
-			    var node = '<li>' + mseNowX + '&&' + posX + '&&' + posLeft + '</li>';
-			    $('#showList').append(node);
 			
 			    $('#lagShowList').unbind('touchend');
 			    $('#lagShowList').bind('touchend',function(e){
@@ -137,6 +135,5 @@
         	<li><span></span></li>
         </ul>
     </div>
-    <ul id="showList"></ul>
 </body>
 </html>

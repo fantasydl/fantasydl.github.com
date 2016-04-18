@@ -89,7 +89,7 @@
 			
 			function msemove(event,posX,posLeft) {
 			    var mseNowX = event.originalEvent.changedTouches[0],
-			        mseMoveDis = mseNowX.screenX - posX.screenX,
+			        mseMoveDis = mseNowX.clientX - posX.clientX,
 			        screenWidth = $(document).width();
 			    var node = '<li>' + mseNowX.clientX + '&&' + posX.clientX + '&&' + posLeft + '</li>';
 			    $('#showList').append(node);

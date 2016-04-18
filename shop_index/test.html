@@ -79,6 +79,8 @@
 			function msedown(event) {
 			    var mseStartX = event.changedTouches[0],
 			        nowLeft = $('#lagShowList').position().left;
+			    var node = '<li>' + mseStartX.clientX + '</li>';
+			    $('#showList').append(node);
 			
 			    $('#lagShowList').unbind('touchmove');
 			    $('#lagShowList').bind('touchmove',function(event){

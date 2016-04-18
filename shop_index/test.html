@@ -79,8 +79,7 @@
 			function msedown(event) {
 			    var mseStartX = event.changedTouches[0],
 			        nowLeft = $('#lagShowList').position().left;
-			    var node = '<li>' + mseStartX.clientX + '</li>';
-			    $('#showList').append(node);
+			    
 			
 			    $('#lagShowList').unbind('touchmove');
 			    $('#lagShowList').bind('touchmove',function(event){
@@ -92,6 +91,8 @@
 			    var mseNowX = event.originalEvent.changedTouches[0],
 			        mseMoveDis = mseNowX.screenX - posX.screenX,
 			        screenWidth = $(document).width();
+			    var node = '<li>' + posLeft + mseMoveDis + '</li>';
+			    $('#showList').append(node);
 			
 			    $('#lagShowList').unbind('touchend');
 			    $('#lagShowList').bind('touchend',function(e){

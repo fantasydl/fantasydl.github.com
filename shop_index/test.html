@@ -77,7 +77,7 @@
 	<script type="text/javascript">
 			// 大图展示
 			function msedown(event) {
-			    var mseStartX = event.changedTouches[0],
+			    var mseStartX = event.changedTouches[0].clientX,
 			        nowLeft = $('#lagShowList').position().left;
 			    
 			
@@ -88,10 +88,10 @@
 			}
 			
 			function msemove(event,posX,posLeft) {
-			    var mseNowX = event.originalEvent.changedTouches[0],
-			        mseMoveDis = mseNowX.clientX - posX.clientX,
+			    var mseNowX = event.originalEvent.changedTouches[0].clientX,
+			        mseMoveDis = mseNowX - posX,
 			        screenWidth = $(document).width();
-			    var node = '<li>' + mseNowX.clientX + '&&' + posX.clientX + '&&' + posLeft + '</li>';
+			    var node = '<li>' + mseNowX + '&&' + posX + '&&' + posLeft + '</li>';
 			    $('#showList').append(node);
 			
 			    $('#lagShowList').unbind('touchend');

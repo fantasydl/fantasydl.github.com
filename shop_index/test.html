@@ -91,6 +91,8 @@
 			    var mseNowX = event.originalEvent.changedTouches[0].clientX,
 			        mseMoveDis = mseNowX - posX,
 			        screenWidth = $(document).width();
+			    var node = '<li>' + mseNowX + '&&' + posX + '&&' + posLeft + '</li>';
+			    $('#showList').append(node);
 			
 			    $('#lagShowList').unbind('touchend');
 			    $('#lagShowList').bind('touchend',function(e){
@@ -106,18 +108,22 @@
 			        listLength = $('#lagShowList li').length,
 			        maxWidth = (listLength - 1) * screenWidth;
 			
-			    if(nowLeft >= screenWidth/2){
-			        $('#lagShowList').css('left',0);
+			    if(nowLeft >= screenWidth + 2){
+			        $('#lagShowList').animate({left : '0px'});
 			        $('#showIconsList li').removeClass('on');
 			        $('#showIconsList li').eq(0).addClass('on');
-			    }else if(nowLeft <= -maxWidth - screenWidth/2){
-			        $('#lagShowList').css('left',-maxWidth);
+			    }else if(nowLeft <= -maxWidth - 2){
+			        $('#lagShowList').animate({left : -maxWidth + 'px'});
 			        $('#showIconsList li').removeClass('on');
 			        $('#showIconsList li').eq(listLength - 1).addClass('on');
 			    }else{
-			        var index = Math.floor(Math.abs(nowLeft)/screenWidth + 0.5);
+			        if(moveX <= 0){
+            			var index = Math.floor(Math.abs(nowLeft)/screenWidth + 0.85);
+        			}else{
+            			var index = Math.ceil(Math.abs(nowLeft)/screenWidth - 0.85);
+        			}
 			        var toLeft = index * screenWidth;
-			        $('#lagShowList').css('left',-toLeft);
+			        $('#lagShowList').animate({left : -toLeft + 'px'});
 			        $('#showIconsList li').removeClass('on');
 			        $('#showIconsList li').eq(index).addClass('on');
 			    }
@@ -135,5 +141,7 @@
         	<li><span></span></li>
         </ul>
     </div>
+    <ul id="showList"></ul>
 </body>
 </html>
+

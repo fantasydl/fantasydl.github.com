@@ -214,6 +214,14 @@
     	// }
     	// showListItem(bList);
     }
+    window.resize = function () {
+    	var height1 = document.body.clientHeight;
+    	var height2 = document.body.scrollHeight;
+    	var height3 = window.screen.height;
+    	var height4 = window.screen.availHeight;
+    	var texttext = ' clientHeight:' + height1 + ' scrollHeight:' + height2 + ' screen.height:' + height3 + ' screen.availHeight' + height4;
+    	$('.container').find('p').text(texttext);
+    }
 
     function showListItem (list) {
     	var rList = [],

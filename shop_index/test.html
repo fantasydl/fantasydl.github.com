@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>测试触摸屏</title>
+	<title>测试移动端</title>
 	<style type="text/css">
 		* {
 		  padding: 0;
@@ -131,7 +131,7 @@
 	</script>
 </head>
 <body>
-	<div class="overlay-pics-show" id="lagShow">
+<!-- 	<div class="overlay-pics-show" id="lagShow">
         <ul class="overlay-pics-list" id="lagShowList" ontouchstart="msedown(event)">
         	<li><img src="http://a0.att.hudong.com/68/18/300533975678133717188480667_950.jpg"></li>
         	<li><img src="http://tupian.enterdesk.com/2013/lxy/12/7/3/9.jpg"></li>
@@ -140,8 +140,81 @@
         	<li class="on"><span></span></li>
         	<li><span></span></li>
         </ul>
-    </div>
-    <ul id="showList"></ul>
+    </div> -->
+    <input type="text" style="height: 20px;width:280px;border:none;padding:10px;">
+    <input type="text" style="height: 20px;width:280px;border:none;padding:10px;">
+    <input type="text" style="height: 20px;width:280px;border:none;padding:10px;">
+    <input type="text" style="height: 20px;width:280px;border:none;padding:10px;">
+    <input type="text" style="height: 20px;width:280px;border:none;padding:10px;">
+    <input type="text" style="height: 20px;width:280px;border:none;padding:10px;">
+    <input type="text" style="height: 20px;width:280px;border:none;padding:10px;">
+    <input type="text" style="height: 20px;width:280px;border:none;padding:10px;">
+    <input type="text" style="height: 20px;width:280px;border:none;padding:10px;">
+    <input type="text" style="height: 20px;width:280px;border:none;padding:10px;">
+    <input type="text" style="height: 20px;width:280px;border:none;padding:10px;">
+    <input type="text" style="height: 20px;width:280px;border:none;padding:10px;">
+    <input type="text" style="height: 20px;width:280px;border:none;padding:10px;">
+<!--     <ul id="showList"></ul> -->
+    <script type="text/javascript">
+    window.onload = function () {
+    	var list = ['1','2','3','4','5'];
+    	var bList = [];
+    	for(var i = 0,l = 8;i < l;i++){
+    		bList.push(list);
+    	}
+    	showListItem(bList);
+    }
+
+    function showListItem (list) {
+    	var rList = [],
+    		liResult = [],
+    		dlResult = [],
+    		maxHeight = 310,
+    		dlHeight = 10,
+    		dtHeight = 21,
+    		ddHeight = 21,
+    		nowHeight = 0;
+
+    	for(var i = 0,l = list.length;i < l;i++){
+    		if(nowHeight + 21 >= maxHeight){
+    			rList.push(liResult);
+
+    			nowHeight = 0;
+    			liResult = [];
+    			nowHeight = nowHeight + dlHeight;
+    		}else{
+    			nowHeight = nowHeight + dlHeight;
+    		}
+
+    		nowHeight = nowHeight + dtHeight;
+
+    		dlResult.push(list[i].levelTwo);
+
+    		for(var j = 0,m = list[i].destLevelTwoList.length;j < m;j++){
+    			nowHeight = nowHeight + ddHeight;
+
+    			dlResult.push(list[i].destLevelTwoList[j]);
+
+    			if(nowHeight + 21 >= maxHeight){
+    				liResult.push(dlResult);
+    				rList.push(liResult);
+
+    				nowHeight = 0;
+    				dlResult = [];
+    				liResult = [];
+    				nowHeight = nowHeight + dlHeight;
+    			}
+    			if(j == m-1 && dlResult.length != 0){
+    				liResult.push(dlResult);
+    				dlResult = [];
+    			}
+    		}
+    		if(i == l-1 && liResult.length > 0){
+    			rList.push(liResult);
+    		}
+    	}
+    	return rList;
+    }
+    </script>
 </body>
 </html>
-

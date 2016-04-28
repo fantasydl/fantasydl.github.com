@@ -112,6 +112,7 @@
 			width: 100%;
 			height: 20px;
 			background-color: #FFCE31;
+			z-index: 999;
 		}
 	</style>
 	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -231,7 +232,7 @@
     			var minu = oHeight + sHeight - maxHeight - 65;
     			$('body').css('padding-bottom',minu + 'px');
     		}
-    		$(window).scrollTop(oHeight - 85);
+    		$(window).scrollTop(oHeight - 65);
     		$('#blank20').css('top',oHeight + 'px');
     		$('#blank20').show();
     	});

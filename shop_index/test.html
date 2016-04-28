@@ -12,16 +12,16 @@
 		  text-decoration: none;
 		}
 		body {
-			overflow: hidden;
-			overflow-x: hidden;
-			overflow-y: hidden;
+		  overflow: hidden;
+		  overflow-x: hidden;
+		  overflow-y: hidden;
 		}
 		.container {
-			height: 100%;
-			padding-top: 65px;
-			overflow: auto;
-			overflow-x: hidden;
-			overflow-y: auto;
+		  height: 100%;
+		  padding-top: 65px;
+		  overflow: auto;
+		  overflow-x: hidden;
+		  overflow-y: auto;
 		}
 		.overlay-pics-show {
 		  position: absolute;
@@ -85,24 +85,33 @@
 		  background-color: #FFF;
 		}
 		.header {
-			position: fixed;
+		  position: fixed;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 64px;
+		  background-color: #000;
+		  color: #FFF;
+		  font-size: 24px;
+		  line-height: 64px;
+		  text-align: center;
+		}
+		input {
+		  width: 85%;
+	  	  height: 30px;
+		  padding: 10px 5px;
+		  margin-left: 5%;
+		  margin-bottom: 10px;
+		  border-radius: 10px;
+		}
+		.blank20 {
+			display: none;
+			position: relative;
 			top: 0;
 			left: 0;
 			width: 100%;
-			height: 64px;
-			background-color: #000;
-			color: #FFF;
-			font-size: 24px;
-			line-height: 64px;
-			text-align: center;
-		}
-		input {
-			width: 85%;
-			height: 30px;
-			padding: 10px 5px;
-			margin-left: 5%;
-			margin-bottom: 10px;
-			border-radius: 10px;
+			height: 20px;
+			background-color: #FFCE31;
 		}
 	</style>
 	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -176,6 +185,7 @@
     <header class="header">
     	这是一个头部！
     </header>
+    <div class="blank20" id="blank20"></div>
     <div class="container">
     	<p>
     		
@@ -221,9 +231,12 @@
     			var minu = oHeight + sHeight - maxHeight - 65;
     			$('body').css('padding-bottom',minu + 'px');
     		}
-    		$(window).scrollTop(oHeight - 65);
+    		$(window).scrollTop(oHeight - 85);
+    		$('#blank20').css('top',oHeight + 'px');
+    		$('#blank20').show();
     	});
     	$('input').blur(function(){
+    		$('#blank20').hide();
     		$('body').css('padding-bottom','0px');
     	});
     }

@@ -213,9 +213,18 @@
     	// 	bList.push(list);
     	// }
     	// showListItem(bList);
-    	$('input').focus(function(){
-    		var oHeight = $(this.element).scrollTop();
-    		$(window).scrollTop(oHeight);
+    	$('input').focus(function(item){
+    		var oHeight = $(this).get(0).offsetTop;
+    		var maxHeight = document.body.scrollHeight;
+    		var sHeight = $(document).height();
+    		if(oHeight + sHeight >= maxHeight){
+    			var minu = oHeight + sHeight - maxHeight - 65;
+    			$('body').css('padding-bottom',minu + 'px');
+    		}
+    		$(window).scrollTop(oHeight - 65);
+    	});
+    	$('input').blur(function(){
+    		$('body').css('padding-bottom','0px');
     	});
     }
     window.onresize = function () {
@@ -224,10 +233,11 @@
     		var height2 = document.body.scrollHeight;
     		var height3 = window.screen.height;
     		var height4 = window.screen.availHeight;
-    		var texttext = ' clientHeight:' + height1 + ' scrollHeight:' + height2 + ' screen.height:' + height3 + ' screen.availHeight' + height4;
+    		var texttext = 'clientHeight:' + height1 + ' scrollHeight:' + height2 + ' screen.height:' + height3 + ' screen.availHeight' + height4;
     		$('.container').find('p').text(texttext);
     	},2000);
     }
+    	
 
     function showListItem (list) {
     	var rList = [],

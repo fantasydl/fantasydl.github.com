@@ -84,7 +84,7 @@
 		  background-color: #FFF;
 		}
 		.header {
-		  	position: fixed;
+			position: fixed;
 			top: 0;
 			left: 0;
 			width: 100%;
@@ -175,8 +175,13 @@
         	<li><span></span></li>
         </ul>
     </div> -->
-    <header class="header">这是一个头部！</header>
+    <header class="header">
+    	这是一个头部！
+    </header>
     <div class="container">
+    	<p>
+    		
+    	</p>
     	<input type="text">
     	<input type="text">
     	<input type="text">
@@ -203,7 +208,7 @@
     window.onload = function () {
     	var systemType = navigator.userAgent.toLowerCase();
     	console.log(systemType);
-    	$('input').eq(3).val(systemType);
+    	$('.container').find('p').text(systemType);
     	// var list = ['1','2','3','4','5'];
     	// var bList = [];
     	// for(var i = 0,l = 8;i < l;i++){

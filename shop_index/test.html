@@ -177,12 +177,15 @@
 <!--     <ul id="showList"></ul> -->
     <script type="text/javascript">
     window.onload = function () {
-    	var list = ['1','2','3','4','5'];
-    	var bList = [];
-    	for(var i = 0,l = 8;i < l;i++){
-    		bList.push(list);
-    	}
-    	showListItem(bList);
+    	var systemType = navigator.userAgent.toLowerCase();
+    	console.log(systemType);
+    	$('input').eq(3).val(systemType);
+    	// var list = ['1','2','3','4','5'];
+    	// var bList = [];
+    	// for(var i = 0,l = 8;i < l;i++){
+    	// 	bList.push(list);
+    	// }
+    	// showListItem(bList);
     }
 
     function showListItem (list) {

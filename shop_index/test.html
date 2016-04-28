@@ -213,6 +213,10 @@
     	// 	bList.push(list);
     	// }
     	// showListItem(bList);
+    	$('input').focus(function(){
+    		var oHeight = $(this.element).scrollTop();
+    		$(document).scrollTop(oHeight);
+    	});
     }
     window.onresize = function () {
     	setTimeout(function(){

@@ -90,6 +90,7 @@
 		function mouseDown () {
 			var mseStartY = event.changedTouches[0].clientY;
 
+			$('#lagShowList').unbind('touchmove');
 			$("#content").bind('touchmove',function(){
 				mouseMove(mseStartY);
 			})

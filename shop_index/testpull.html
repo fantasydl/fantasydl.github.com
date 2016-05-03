@@ -98,6 +98,7 @@
 	</div>
 	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script type="text/javascript">
+		var timer;
 		$(document).ready(function(){
 			$("#content").bind('touchstart',function(){
 				mouseDown();
@@ -128,7 +129,8 @@
 		};
 
 		function mouseUp () {
-			setTimeout(function(){
+			clearTimeout(timer);
+			timer = setTimeout(function(){
 				$('#fill').height(0);
 				$('#bottom').animate({'bottom':'-20px'});
 			},2000);

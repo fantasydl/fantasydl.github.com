@@ -131,7 +131,7 @@
 		function mouseUp () {
 			clearTimeout(timer);
 			timer = setTimeout(function(){
-				$('#fill').height(0);
+				$('#fill').animate({'height':'0px'});
 				$('#bottom').animate({'bottom':'-20px'});
 			},2000);
 		};

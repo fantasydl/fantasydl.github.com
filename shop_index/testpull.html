@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0;">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0;">
 	<title>测试上拉刷新</title>
 	<style type="text/css">
 		* {
@@ -28,6 +28,7 @@
 		}
 		.container .content {
 			height: 100%;
+			background-color: #456a48;
 			color: #FFF;
 			overflow: auto;
 		}
@@ -70,8 +71,24 @@
 			这是一句话。算上上一句有两句话了！<br/>
 			这是一句话。算上上一句有两句话了！<br/>
 			这是一句话。算上上一句有两句话了！<br/>
-			这是一句话。算上上一句有两句话了！<br/>
-			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！7<br/>
+			这是一句话。算上上一句有两句话了！6<br/>
+			这是一句话。算上上一句有两句话了！5<br/>
+			这是一句话。算上上一句有两句话了！4<br/>
+			这是一句话。算上上一句有两句话了！3<br/>
+			这是一句话。算上上一句有两句话了！2<br/>
+			这是一句话。算上上一句有两句话了！1<br/>
+			这是一句话。算上上一句有两句话了！0<br/>
+			这是一句话。算上上一句有两句话了！9<br/>
+			这是一句话。算上上一句有两句话了！8<br/>
+			这是一句话。算上上一句有两句话了！7<br/>
+			这是一句话。算上上一句有两句话了！6<br/>
+			这是一句话。算上上一句有两句话了！5<br/>
+			这是一句话。算上上一句有两句话了！4<br/>
+			这是一句话。算上上一句有两句话了！3<br/>
+			这是一句话。算上上一句有两句话了！2<br/>
+			这是一句话。算上上一句有两句话了！1<br/>
+			<div class="fill" id="fill"></div>
 		</div>
 		<div class="bottom" id="bottom">
 			<div class="bottom-text">
@@ -90,7 +107,7 @@
 		function mouseDown () {
 			var mseStartY = event.changedTouches[0].clientY;
 
-			$('#lagShowList').unbind('touchmove');
+			$('#content').unbind('touchmove');
 			$("#content").bind('touchmove',function(){
 				mouseMove(mseStartY);
 			})
@@ -100,18 +117,19 @@
 			var mseEndY = event.changedTouches[0].clientY;
 
 			if(clY - mseEndY >= 40){
+				$('#content').unbind('touchend');
 				$("#content").bind('touchend',function(){
 					mouseUp();
 				})
 			}else if(clY - mseEndY < 40 && clY - mseEndY > 0){
-				$('#content').css('padding-bottom',clY - mseEndY);
+				$('#fill').height(clY - mseEndY);
 				$('#bottom').css('bottom',-20 + (clY - mseEndY)/2);
 			}
 		};
 
 		function mouseUp () {
 			setTimeout(function(){
-				$('#content').animate({'padding-bottom':'0px'});
+				$('#fill').height(0);
 				$('#bottom').animate({'bottom':'-20px'});
 			},2000);
 		};

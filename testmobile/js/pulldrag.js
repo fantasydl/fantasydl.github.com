@@ -443,9 +443,9 @@ PTR2.init = function(el, options) {
             } else if (scroll.scrollTop + scroll.offsetHeight > scroll.scrollHeight && options.scrollBottomElement) {
                 if (state2 == 'release') {
                     state2 = 'dragging';
-                    $(scroll).scroll(function(){
-                        var nowTop =  $(scroll).scrollTop();
-                        var targetTop = scroll.scrollHeight - scroll.offsetHeight;
+                    $(".scroll-container").scroll(function(){
+                        var nowTop =  $(".scroll-container").scrollTop();
+                        var targetTop = $(".scroll-container").scrollHeight - $(".scroll-container").offsetHeight;
                         var re = nowTop - targetTop;
                         if(nowTop - targetTop == 50){
                              $(".scoll-bottom-fill").height(50);

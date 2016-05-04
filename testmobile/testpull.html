@@ -25,7 +25,7 @@
 			top: 20%;
 			left: 20%;
 			width: 250px;
-			height: 100px;
+			height: 50px;
 			background-color: #EEE;
 			color: red;
 			text-align: center;
@@ -44,7 +44,7 @@
 		.content {
 			height: 100%;
 			color: #FFF;
-			overflow: scroll
+			overflow: auto;
 		}
 		.container .bottom {
 			position: absolute;
@@ -168,21 +168,21 @@
 		$(document).ready(function(){
 			var oHeight = $(document).height();
 			$('#container').height(oHeight);
-			
+
 			$(".scroll-container").scroll(function(){
 				var nTop = $(".scroll-container").scrollTop();
-				var nHeight = $(".scroll-container").height();
+				var nHeight = $(".scoll-bottom-fill").height();
 				$(".fixed").find("span").text(nTop + ' ' + nHeight);
 			})
-			
+
 			PTR2.init(document.querySelector('#container .scrollable'), {
         		onLoadMore: function() {
         			var promise = new Promise(function(resolve, reject) {
-  					setTimeout(function(){
-  						resolve();
-  					},2000);
-				});
-				return promise;
+  						setTimeout(function(){
+  							resolve(123);
+  						},1000);
+					});
+					return promise;
 				}
 			})
 		});

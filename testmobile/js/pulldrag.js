@@ -276,7 +276,6 @@ PTR2.init = function(el, options) {
                 $(options.scrollBottomFillElement).height(options.maxPullHeight);
             } else {
                 scroll.scrollTop--;
-                // $(".scoll-bottom-fill").height(50);
             }
         } else if (scroll.scrollTop + scroll.offsetHeight >= scroll.scrollHeight - 15) {
             if (!isAndroid) {
@@ -348,7 +347,6 @@ PTR2.init = function(el, options) {
                 options.scrollBottomElement.style.opacity = 1; //Math.min(_y / options.dragHeight, 1);
 
                 if (_y > options.dragHeight && state2 == 'dragging') {
-                    
                     options.pullingDiv2.style.display = 'none';
                     options.releaseDiv2.style.display = '';
                     state2 = 'release';
@@ -443,11 +441,12 @@ PTR2.init = function(el, options) {
                     options.onRefresh.call();
                 }
             } else if (scroll.scrollTop + scroll.offsetHeight > scroll.scrollHeight && options.scrollBottomElement) {
-                var _y = scroll.scrollTop + scroll.offsetHeight - scroll.scrollHeight;
                 if (state2 == 'release') {
                     state2 = 'dragging';
+                    var _y = scroll.scrollHeight - scroll.offsetHeight - 50;
                     $(".fixed").find("span").text("变50！！");
                     $(".scoll-bottom-fill").height(50);
+                    $(scroll).scrollTop(_y);
                     var asy = options.onLoadMore.call();
                     
                     asy.then(function() {

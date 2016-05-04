@@ -482,7 +482,7 @@ PTR2.init = function(el, options) {
             $(".scoll-bottom-fill").animate({'height':'0px'}, 400, 'linear',function(){
                 var nowTop = scroll.scrollHeight - scroll.offsetHeight;
                 $(scroll).scrollTop(nowTop);
-            }
+            })
         }
         PTR2.utils.transform2(options.scrollTopElement, 0, 0);
         PTR2.utils.transform2(options.scrollBottomElement, 0, 0);

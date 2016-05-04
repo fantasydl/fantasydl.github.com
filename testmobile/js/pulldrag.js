@@ -445,7 +445,7 @@ PTR2.init = function(el, options) {
                     state2 = 'dragging';
                     var _y = $(scroll).scrollTop() - (scroll.scrollHeight - scroll.offsetHeight);
                     $(".scoll-bottom-fill").height(_y);
-                    $(scroll).scrollTop($(scroll).scrollTop());
+                    // $(scroll).scrollTop($(scroll).scrollTop());
                     // $(".scoll-bottom-fill").animate({'height':'50px'}, 1000);
                     
 

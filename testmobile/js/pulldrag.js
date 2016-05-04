@@ -276,11 +276,11 @@ PTR2.init = function(el, options) {
                 $(options.scrollBottomFillElement).height(options.maxPullHeight);
             } else {
                 scroll.scrollTop--;
-                $(options.scrollBottomFillElement).height(50);
+                $(".scoll-bottom-fill").height(50);
             }
         } else {
             if (!isAndroid) {
-                $(options.scrollBottomFillElement).height(50);
+                $(".scoll-bottom-fill").height(50);
             }
         }
     });
@@ -357,7 +357,7 @@ PTR2.init = function(el, options) {
                     options.releaseDiv2.style.display = 'none';
                     state2 = 'dragging';
                 } else {
-                    $(options.scrollBottomFillElement).height(0);
+                    $(".scoll-bottom-fill").height(0);
                 }
             }
         }

@@ -169,14 +169,6 @@
 			var oHeight = $(document).height();
 			$('#container').height(oHeight);
 
-			$(".scroll-container").scroll(function(){
-				var nTop = $(".scroll-container").scrollTop();
-				var sHeight = $(".scroll-container").get(0).scrollHeight;
-				var nHeight = $(".scroll-container").get(0).offsetHeight;
-				var re = nTop - (sHeight - nHeight);
-				// $(".fixed").find("span").text(re + ' ');
-			})
-
 			PTR2.init(document.querySelector('#container .scrollable'), {
         		onLoadMore: function() {
         			var promise = new Promise(function(resolve, reject) {

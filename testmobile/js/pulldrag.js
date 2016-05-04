@@ -449,7 +449,7 @@ PTR2.init = function(el, options) {
 
                       setTimeout(function(){
                         resetTopAndBottom();
-                        $(".scoll-bottom-fill").height(0);
+                        $(".scoll-bottom-fill").animate({'height':'0px'});
                         setTimeout(function() {
                             options.pullingDiv2.style.display = '';
                             options.releaseDiv2.style.display = 'none';
@@ -461,11 +461,11 @@ PTR2.init = function(el, options) {
                     });
                 } else {
                     resetTopAndBottom();
-                    $(".scoll-bottom-fill").height(0);
+                    $(".scoll-bottom-fill").animate({'height':'0px'});
                 }
             } else {
                 resetTopAndBottom();
-                $(".scoll-bottom-fill").height(0);
+                $(".scoll-bottom-fill").animate({'height':'0px'});
             }
         }
     });

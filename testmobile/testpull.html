@@ -170,6 +170,7 @@
 			$('#container').height(oHeight);
 			PTR2.init(document.querySelector('#container .scrollable'), {
         		onLoadMore: function() {
+        			$(".scoll-bottom-fill").height(40);
         			var sHeight = $(".scoll-bottom-fill").height();
         			$(".fixed").find("span").text('上拉刷新中！');
         			$(".fixed").find("span").text('高度' + sHeight);

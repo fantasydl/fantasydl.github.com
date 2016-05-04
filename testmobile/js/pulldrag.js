@@ -339,11 +339,11 @@ PTR2.init = function(el, options) {
                 }
             } else if (scroll.scrollTop + scroll.offsetHeight > scroll.scrollHeight && options.scrollBottomElement) {
                 var _y = scroll.scrollTop + scroll.offsetHeight - scroll.scrollHeight;
-                PTR2.utils.transform2(options.scrollBottomElement, 0, -0.3 * _y);
+                PTR2.utils.transform2(options.scrollBottomElement, 0, -0.25 * _y);
                 options.scrollBottomElement.style.opacity = 1; //Math.min(_y / options.dragHeight, 1);
 
                 if (_y > options.dragHeight && state2 == 'dragging') {
-                    $(".scoll-bottom-fill").height(80);
+                    $(".scoll-bottom-fill").height(70);
                     options.pullingDiv2.style.display = 'none';
                     options.releaseDiv2.style.display = '';
                     state2 = 'release';
@@ -472,7 +472,7 @@ PTR2.init = function(el, options) {
       // cubic-bezier(.25,.66,.42,.99)
         PTR2.utils.transition(options.scrollTopElement, 'all', '500ms linear');
         PTR2.utils.transition(options.scrollBottomElement, 'all', '500ms linear');
-        $(".scoll-bottom-fill").animate({'height':'0px'}, 400);
+        if (!isAndroid && $(".scoll-bottom-fill").height() > 0) $(".scoll-bottom-fill").animate({'height':'0px'}, 400);
         PTR2.utils.transform2(options.scrollTopElement, 0, 0);
         PTR2.utils.transform2(options.scrollBottomElement, 0, 0);
         if (options.scrollTopElement) options.scrollTopElement.style.opacity = 0;

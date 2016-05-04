@@ -479,9 +479,11 @@ PTR2.init = function(el, options) {
                     });
                 } else {
                     setTimeout(function(){
+                        var firstH = $(".scoll-bottom-fill").height();
                         $(".scoll-bottom-fill").height(0);
+                        var secondH = $(".scoll-bottom-fill").height();
                         resetTopAndBottom();
-                        $(".fixed").find("span").text('');
+                        $(".fixed").find("span").text(firstH+''+secondH);
                     },500)
                 }
             } else {

@@ -470,7 +470,7 @@ PTR2.init = function(el, options) {
                 } else {
                     setTimeout(function(){
                         resetTopAndBottom();
-                    }, 1000)
+                    }, 600)
                 }
             } else {
                 resetTopAndBottom();

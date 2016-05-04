@@ -448,7 +448,6 @@ PTR2.init = function(el, options) {
                 var _y = scroll.scrollTop + scroll.offsetHeight - scroll.scrollHeight;
                 if (state2 == 'release') {
                     state2 = 'dragging';
-
                     var asy = options.onLoadMore.call();
                     
                     asy.then(function() {
@@ -473,7 +472,7 @@ PTR2.init = function(el, options) {
                         // $(".scoll-bottom-fill").height(0);
                         resetTopAndBottom();
                         $(".fixed").find("span").text('变0！！333');
-                    },200)
+                    },500)
                 }
             } else {
                 resetTopAndBottom();

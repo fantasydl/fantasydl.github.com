@@ -359,6 +359,10 @@ PTR2.init = function(el, options) {
                     $(".scoll-bottom-fill").height(0);
                     $(".fixed").find("span").text('变0！！');
                 } else {
+                    if(options.releaseDiv2.style.display == 'none'){
+                        $(".scoll-bottom-fill").height(0);
+                        $(".fixed").find("span").text('变0！！');
+                    }
                     $(".fixed").find("span").text('没变0！！');
                 }
             }

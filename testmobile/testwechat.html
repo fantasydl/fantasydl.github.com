@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0;">
+	<title>测试微信端</title>
+	<style type="text/css">
+		html {
+			height: 100%;
+		}
+		body {
+			position: relative;
+			height: 100%;
+			background-color: #000;
+			overflow: hidden;
+		}
+		.fixed,
+		.bottom,
+		.mask,
+		.down {
+			width: 100%;
+			box-sizing: border-box;
+			color: #FFF;
+			text-align: center;
+		}		
+		.fixed {
+			position: fixed;
+			bottom: 0;
+			background-color: #2158AD;
+			z-index: 1000;
+		}
+		.bottom {
+			position: relative;
+			top: 0;
+			left: 0;
+			height: auto;
+			-webit-transform: translate(0px,0px);
+			-moz-transform: translate(0px,0px);
+			-ms-transform: translate(0px,0px);
+			-o-transform: translate(0px,0px);
+			transform: translate(0px,0px);
+		}
+		.mask {
+			height: 150px;
+			background-color: #FFCE31;
+			line-height: 150px;
+		}
+		.down {
+			height: 64px;
+			line-height: 64px;
+		}
+	</style>
+</head>
+<body>
+	<div class="fixed">
+		<footer class="bottom">
+			<div class="mask">想看更多？NO WAY！</div>
+			<div class="down">下载！</div>
+		</footer>
+	</div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0;">
+	<title>测试上拉刷新</title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		html,
+		body {
+			height: 100%;
+			width: 100%;
+		}
+		.container,
+		.content,
+		.bottom,
+		.bottom-text {
+			width: 100%;
+		}
+		.container {
+			position: relative;
+			height: 100%;
+			background-color: #000;
+			overflow: hidden;
+		}
+		.container .content {
+			height: 100%;
+			background-color: #456a48;
+			color: #FFF;
+			overflow: auto;
+		}
+		.container .bottom {
+			position: absolute;
+			left: 0;
+			bottom: -20px;
+			height: 40px;
+			background-color: #FFCE31;
+			z-index: 999;
+		}
+		.container .bottom .bottom-text {
+			color: #FFF;
+			line-height: 40px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="content" id="content">
+			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！<br/>
+			这是一句话。算上上一句有两句话了！7<br/>
+			这是一句话。算上上一句有两句话了！6<br/>
+			这是一句话。算上上一句有两句话了！5<br/>
+			这是一句话。算上上一句有两句话了！4<br/>
+			这是一句话。算上上一句有两句话了！3<br/>
+			这是一句话。算上上一句有两句话了！2<br/>
+			这是一句话。算上上一句有两句话了！1<br/>
+			这是一句话。算上上一句有两句话了！0<br/>
+			这是一句话。算上上一句有两句话了！9<br/>
+			这是一句话。算上上一句有两句话了！8<br/>
+			这是一句话。算上上一句有两句话了！7<br/>
+			这是一句话。算上上一句有两句话了！6<br/>
+			这是一句话。算上上一句有两句话了！5<br/>
+			这是一句话。算上上一句有两句话了！4<br/>
+			这是一句话。算上上一句有两句话了！3<br/>
+			这是一句话。算上上一句有两句话了！2<br/>
+			这是一句话。算上上一句有两句话了！1<br/>
+			<div class="fill" id="fill"></div>
+		</div>
+		<div class="bottom" id="bottom">
+			<div class="bottom-text">
+				正在加载
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		var timer;
+		$(document).ready(function(){
+			$("#content").bind('touchstart',function(){
+				mouseDown();
+			})
+		});
+
+		function mouseDown () {
+			var mseStartY = event.changedTouches[0].clientY;
+
+			$('#content').unbind('touchmove');
+			$("#content").bind('touchmove',function(){
+				mouseMove(mseStartY);
+			})
+		};
+
+		function mouseMove (clY) {
+			var mseEndY = event.changedTouches[0].clientY;
+
+			if(clY - mseEndY >= 40){
+				$('#content').unbind('touchend');
+				$("#content").bind('touchend',function(){
+					mouseUp();
+				})
+			}else if(clY - mseEndY < 40 && clY - mseEndY > 0){
+				$('#fill').height(clY - mseEndY);
+				$('#bottom').css('bottom',-20 + (clY - mseEndY)/2);
+			}
+		};
+
+		function mouseUp () {
+			clearTimeout(timer);
+			timer = setTimeout(function(){
+				$('#fill').animate({'height':'0px'});
+				$('#bottom').animate({'bottom':'-20px'});
+			},2000);
+		};
+	</script>
+</body>
+</html>

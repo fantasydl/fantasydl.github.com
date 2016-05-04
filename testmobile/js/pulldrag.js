@@ -447,7 +447,7 @@ PTR2.init = function(el, options) {
                         var nowTop =  $(scroll).scrollTop();
                         var targetTop = scroll.scrollHeight - scroll.offsetHeight;
                         if(targetTop - nowTop == 50){
-                             $(".scoll-bottom-fill").height(50)px;
+                             $(".scoll-bottom-fill").height(50);
                         }
                     })
 

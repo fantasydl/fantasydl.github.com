@@ -171,8 +171,9 @@
 
 			$(".scroll-container").scroll(function(){
 				var nTop = $(".scroll-container").scrollTop();
-				var nHeight = $(".scoll-bottom-fill").height();
-				$(".fixed").find("span").text(nTop + ' ' + nHeight);
+				var sHeight = $(".scroll-container").get(0).scrollHeight;
+				var nHeight = $(".scroll-container").get(0).offsetHeight;
+				$(".fixed").find("span").text(nTop + ' ' + nHeight + ' ' + sHeight);
 			})
 
 			PTR2.init(document.querySelector('#container .scrollable'), {

@@ -468,6 +468,7 @@ PTR2.init = function(el, options) {
 
                       setTimeout(function(){
                         resetTopAndBottom();
+                        $(".scoll-bottom-fill").animate({'height':'0px'}, 400);
                         setTimeout(function() {
                             options.pullingDiv2.style.display = '';
                             options.releaseDiv2.style.display = 'none';
@@ -478,12 +479,11 @@ PTR2.init = function(el, options) {
                       }, 500);
                     });
                 } else {
-                    $(".scoll-bottom-fill").animate({'height':'0px'}, 100);
                     resetTopAndBottom();
                     $(".fixed").find("span").text('变0！！333');
                 }
             } else {
-                $(".scoll-bottom-fill").animate({'height':'0px'}, 100);
+                $(".scoll-bottom-fill").animate({'height':'0px'}, 400);
                 resetTopAndBottom();
                 $(".fixed").find("span").text('变0！！444');
             }
@@ -494,7 +494,7 @@ PTR2.init = function(el, options) {
       // cubic-bezier(.25,.66,.42,.99)
         PTR2.utils.transition(options.scrollTopElement, 'all', '500ms linear');
         PTR2.utils.transition(options.scrollBottomElement, 'all', '500ms linear');
-        if (!isAndroid && $(".scoll-bottom-fill").height() > 0) $(".scoll-bottom-fill").animate({'height':'0px'}, 400); //$(".fixed").find("span").text('变0！！333');
+        // if (!isAndroid && $(".scoll-bottom-fill").height() > 0) $(".scoll-bottom-fill").animate({'height':'0px'}, 400); //$(".fixed").find("span").text('变0！！333');
         PTR2.utils.transform2(options.scrollTopElement, 0, 0);
         PTR2.utils.transform2(options.scrollBottomElement, 0, 0);
         if (options.scrollTopElement) options.scrollTopElement.style.opacity = 0;

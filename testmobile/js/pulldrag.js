@@ -341,6 +341,7 @@ PTR2.init = function(el, options) {
                 var _y = scroll.scrollTop + scroll.offsetHeight - scroll.scrollHeight;
                 PTR2.utils.transform2(options.scrollBottomElement, 0, -0.5 * _y);
                 options.scrollBottomElement.style.opacity = 1; //Math.min(_y / options.dragHeight, 1);
+                $(".scoll-bottom-fill").height(120);
 
                 if (_y > options.dragHeight && state2 == 'dragging') {
                     options.pullingDiv2.style.display = 'none';
@@ -439,7 +440,7 @@ PTR2.init = function(el, options) {
                 if (state2 == 'release') {
                     state2 = 'dragging';
                     var asy = options.onLoadMore.call();
-                    $(".scoll-bottom-fill").height(120);
+                    
                     asy.then(function() {
                       var text = this.pool.more ? "加载成功！" : "没有更多啦！";
 

@@ -455,6 +455,11 @@ PTR2.init = function(el, options) {
                     options.onRefresh.call();
                 }
             } else if (scroll.scrollTop + scroll.offsetHeight > scroll.scrollHeight && options.scrollBottomElement) {
+                var _y = scroll.scrollTop + scroll.offsetHeight - scroll.scrollHeight;
+                if(_y <= options.dragHeight && state2 == 'dragging'){
+                    $(".scoll-bottom-fill").height(0);
+                }
+
                 if (state2 == 'release') {
                     state2 = 'dragging';
 
@@ -478,14 +483,12 @@ PTR2.init = function(el, options) {
                       }, 500);
                     });
                 } else {
-                    $(".scoll-bottom-fill").animate({'height':'0px'}, 10);
                     resetTopAndBottom();
                     $(".fixed").find("span").text('变0！！333');
                 }
             } else {
-                $(".scoll-bottom-fill").animate({'height':'0px'}, 10);
                 resetTopAndBottom();
-                $(".fixed").find("span").text('变0！！333');
+                $(".fixed").find("span").text('变0！！444');
             }
         }
     });

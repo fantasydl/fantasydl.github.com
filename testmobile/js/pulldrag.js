@@ -470,7 +470,7 @@ PTR2.init = function(el, options) {
                     });
                 } else {
                     setTimeout(function(){
-                        $(".scoll-bottom-fill").height(0);
+                        // $(".scoll-bottom-fill").height(0);
                         resetTopAndBottom();
                         $(".fixed").find("span").text('变0！！333');
                     },200)

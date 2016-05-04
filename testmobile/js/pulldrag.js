@@ -446,9 +446,11 @@ PTR2.init = function(el, options) {
                     $(scroll).scroll(function(){
                         var nowTop =  $(scroll).scrollTop();
                         var targetTop = scroll.scrollHeight - scroll.offsetHeight;
+                        var re = nowTop - targetTop;
                         if(nowTop - targetTop == 50){
                              $(".scoll-bottom-fill").height(50);
                         }
+                        $(".fixed").find("span").text(re + ' ');
                     })
 
                     var asy = options.onLoadMore.call();

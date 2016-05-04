@@ -276,11 +276,11 @@ PTR2.init = function(el, options) {
                 $(options.scrollBottomFillElement).height(options.maxPullHeight);
             } else {
                 scroll.scrollTop--;
-                $(".scoll-bottom-fill").height(70);
+                $(options.scrollBottomFillElement).height(50);
             }
         } else {
             if (!isAndroid) {
-                $(".scoll-bottom-fill").height(70);
+                $(options.scrollBottomFillElement).height(50);
             }
         }
     });
@@ -348,7 +348,7 @@ PTR2.init = function(el, options) {
                 options.scrollBottomElement.style.opacity = 1; //Math.min(_y / options.dragHeight, 1);
 
                 if (_y > options.dragHeight && state2 == 'dragging') {
-                    
+                    // $(".scoll-bottom-fill").height(70);
                     options.pullingDiv2.style.display = 'none';
                     options.releaseDiv2.style.display = '';
                     state2 = 'release';
@@ -356,6 +356,8 @@ PTR2.init = function(el, options) {
                     options.pullingDiv2.style.display = '';
                     options.releaseDiv2.style.display = 'none';
                     state2 = 'dragging';
+                } else {
+                    $(options.scrollBottomFillElement).height(0);
                 }
             }
         }
@@ -445,6 +447,7 @@ PTR2.init = function(el, options) {
             } else if (scroll.scrollTop + scroll.offsetHeight > scroll.scrollHeight && options.scrollBottomElement) {
                 if (state2 == 'release') {
                     state2 = 'dragging';
+
                     var asy = options.onLoadMore.call();
                     
                     asy.then(function() {
@@ -468,10 +471,7 @@ PTR2.init = function(el, options) {
                     resetTopAndBottom();
                 }
             } else {
-                $(".fixed").find("span").text('这是例外！');
-                setTimeout(function(){
-                    $(".fixed").find("span").text('');
-                },1500)
+                resetTopAndBottom();
             }
         }
     });

@@ -346,7 +346,7 @@ PTR2.init = function(el, options) {
                 }
             } else if (scroll.scrollTop + scroll.offsetHeight > scroll.scrollHeight && options.scrollBottomElement) {
                 var _y = scroll.scrollTop + scroll.offsetHeight - scroll.scrollHeight;
-                PTR2.utils.transform2(options.scrollBottomElement, 0, -0.25 * _y);
+                PTR2.utils.transform2(options.scrollBottomElement, 0, -25);
                 options.scrollBottomElement.style.opacity = 1; //Math.min(_y / options.dragHeight, 1);
 
                 if (_y > options.dragHeight && state2 == 'dragging') {

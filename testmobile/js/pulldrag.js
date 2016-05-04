@@ -276,11 +276,11 @@ PTR2.init = function(el, options) {
                 $(options.scrollBottomFillElement).height(options.maxPullHeight);
             } else {
                 scroll.scrollTop--;
-                $(".scoll-bottom-fill").height(50);
+                // $(".scoll-bottom-fill").height(50);
             }
         } else if (scroll.scrollTop + scroll.offsetHeight >= scroll.scrollHeight - 15) {
             if (!isAndroid) {
-                $(".scoll-bottom-fill").height(50);
+                scroll.scrollTop--;
             }
         }
     });
@@ -348,6 +348,7 @@ PTR2.init = function(el, options) {
                 options.scrollBottomElement.style.opacity = 1; //Math.min(_y / options.dragHeight, 1);
 
                 if (_y > options.dragHeight && state2 == 'dragging') {
+                    $(".scoll-bottom-fill").height(50);
                     options.pullingDiv2.style.display = 'none';
                     options.releaseDiv2.style.display = '';
                     state2 = 'release';

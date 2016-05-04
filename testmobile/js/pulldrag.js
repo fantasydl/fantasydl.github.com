@@ -277,10 +277,12 @@ PTR2.init = function(el, options) {
             } else {
                 scroll.scrollTop--;
                 $(".scoll-bottom-fill").height(50);
+                $(".fixed").find("span").text('变50！！111');
             }
         } else {
             if (!isAndroid) {
                 $(".scoll-bottom-fill").height(50);
+                $(".fixed").find("span").text('变50！！222');
             }
         }
     });
@@ -357,11 +359,11 @@ PTR2.init = function(el, options) {
                     options.releaseDiv2.style.display = 'none';
                     state2 = 'dragging';
                     $(".scoll-bottom-fill").height(0);
-                    $(".fixed").find("span").text('变0！！');
+                    $(".fixed").find("span").text('变0！！111');
                 } else {
                     if(options.pullingDiv2.style.display == 'display' && state2 == 'dragging'){
                         $(".scoll-bottom-fill").height(0);
-                        $(".fixed").find("span").text('变0！！');
+                        $(".fixed").find("span").text('变0！！222');
                     } else {
                         $(".fixed").find("span").text('没变0！！');
                     }
@@ -487,7 +489,7 @@ PTR2.init = function(el, options) {
       // cubic-bezier(.25,.66,.42,.99)
         PTR2.utils.transition(options.scrollTopElement, 'all', '500ms linear');
         PTR2.utils.transition(options.scrollBottomElement, 'all', '500ms linear');
-        if (!isAndroid && $(".scoll-bottom-fill").height() > 0) $(".scoll-bottom-fill").animate({'height':'0px'}, 400);$(".fixed").find("span").text('变0！！');
+        if (!isAndroid && $(".scoll-bottom-fill").height() > 0) $(".scoll-bottom-fill").animate({'height':'0px'}, 400);$(".fixed").find("span").text('变0！！333');
         PTR2.utils.transform2(options.scrollTopElement, 0, 0);
         PTR2.utils.transform2(options.scrollBottomElement, 0, 0);
         if (options.scrollTopElement) options.scrollTopElement.style.opacity = 0;

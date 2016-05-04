@@ -281,6 +281,7 @@ PTR2.init = function(el, options) {
         } else {
             if (!isAndroid) {
                 $(".scoll-bottom-fill").height(50);
+                $(".fixed").find("span").text('变50！！');
             }
         }
     });
@@ -358,6 +359,8 @@ PTR2.init = function(el, options) {
                     state2 = 'dragging';
                     $(".scoll-bottom-fill").height(0);
                     $(".fixed").find("span").text('变0！！');
+                } else {
+                    $(".fixed").find("span").text('变了50！！没变0！！');
                 }
             }
         }

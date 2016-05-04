@@ -357,6 +357,7 @@ PTR2.init = function(el, options) {
                     options.releaseDiv2.style.display = 'none';
                     state2 = 'dragging';
                     $(".scoll-bottom-fill").height(0);
+                    $(".fixed").find("span").text('变0！！');
                 }
             }
         }

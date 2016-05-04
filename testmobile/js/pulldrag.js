@@ -1,12 +1,12 @@
-var PTR = {};
-PTR.isTouch = "ontouchstart" in window;
-PTR.EVENTS = {
-    DOWN: PTR.isTouch ? "touchstart" : "mousedown",
-    UP: PTR.isTouch ? "touchend" : "mouseup",
-    MOVE: PTR.isTouch ? "touchmove" : "mousemove"
+var PTR2 = {};
+PTR2.isTouch = "ontouchstart" in window;
+PTR2.EVENTS = {
+    DOWN: PTR2.isTouch ? "touchstart" : "mousedown",
+    UP: PTR2.isTouch ? "touchend" : "mouseup",
+    MOVE: PTR2.isTouch ? "touchmove" : "mousemove"
 };
 
-PTR.sys = function() {
+PTR2.sys = function() {
     var a = navigator.userAgent,
         b = a.match(/iPhone/i),
         c = a.match(/iPad/i),
@@ -58,7 +58,7 @@ PTR.sys = function() {
     }
 }();
 
-PTR.utils = function() {
+PTR2.utils = function() {
     var a, b, c, h, e, d = function(a, c) {
         a.style[b] = c
     };
@@ -79,16 +79,16 @@ PTR.utils = function() {
                 break
             }
     })(document.documentElement);
-    e = PTR.sys.hasIssuesWith.resetTransition ? "all 0.0001ms linear" : "";
+    e = PTR2.sys.hasIssuesWith.resetTransition ? "all 0.0001ms linear" : "";
     return {
         rotate: function(a, b) {
             if (!a) return;
-            PTR.sys.supports.translate3d ? d(a, "rotate(" + b + "rad) translateZ(0)") : d(a, "rotate(" + b + "rad)")
+            PTR2.sys.supports.translate3d ? d(a, "rotate(" + b + "rad) translateZ(0)") : d(a, "rotate(" + b + "rad)")
         },
         transform: d,
         transform2: function(a, c, d, e, h) {
             if (!a) return;
-            c = PTR.sys.supports.translate3d ? "translate3d(" + c + "px," + d + "px,0px)" : "translate(" + c + "px," + d + "px)";
+            c = PTR2.sys.supports.translate3d ? "translate3d(" + c + "px," + d + "px,0px)" : "translate(" + c + "px," + d + "px)";
             void 0 != e && (c += " scale(" + e + ")");
             void 0 != h && (c += " rotate(" + h + "rad)");
             a.style[b] = c
@@ -101,7 +101,7 @@ PTR.utils = function() {
         },
         translate: function(a, b, c, e) {
             if (!a) return;
-            PTR.sys.supports.translate3d ? d(a, "translate3d(" + b + "," + c + "," + (void 0 != e ? e : "0px") + ")") : d(a, "translate(" + b + "," + c + ")")
+            PTR2.sys.supports.translate3d ? d(a, "translate3d(" + b + "," + c + "," + (void 0 != e ? e : "0px") + ")") : d(a, "translate(" + b + "," + c + ")")
         },
         resetTransition: function(b) {
             if (!b) return;
@@ -113,7 +113,7 @@ PTR.utils = function() {
             a.style[h] = b
         },
         smoothEdge: function(a) {
-            PTR.sys.isIPad && (a.style.WebkitBoxShadow = "0px 0px 1px " + getComputedStyle(a).backgroundColor)
+            PTR2.sys.isIPad && (a.style.WebkitBoxShadow = "0px 0px 1px " + getComputedStyle(a).backgroundColor)
         },
         vendorPrefix: a,
         transformName: b,
@@ -137,8 +137,8 @@ PTR.utils = function() {
         },
         tappify: function(a, b) {
             var c = a.href;
-            a.addEventListener("click", PTR.utils.preventDefault, false);
-            a.addEventListener(b || PTR.EVENTS.UP, function() {
+            a.addEventListener("click", PTR2.utils.preventDefault, false);
+            a.addEventListener(b || PTR2.EVENTS.UP, function() {
                 window.location.href = c
             }, false);
             a.href = "javascript:void(0)"
@@ -153,9 +153,9 @@ PTR.utils = function() {
     }
 }();
 
-var isAndroid = PTR.sys.isAndroid;
+var isAndroid = PTR2.sys.isAndroid;
 
-PTR.init = function(el, options) {
+PTR2.init = function(el, options) {
 
     var defaultOptions = {
         scrollElement: el.querySelector('.scroll-container'),
@@ -174,8 +174,8 @@ PTR.init = function(el, options) {
     // console.log($(el).height());
     // console.log($(defaultOptions.scrollElement).height());
 
-    if (!el || el.getAttribute('data-ptr')) return;
-    el.setAttribute('data-ptr', 'yes');
+    if (!el || el.getAttribute('data-PTR2')) return;
+    el.setAttribute('data-PTR2', 'yes');
 
     // 将默认选项替换
     if (options && typeof options == 'object')
@@ -257,7 +257,7 @@ PTR.init = function(el, options) {
     }
 
     // 绑定下拉事件到滚动container
-    PTR.utils.bind(scroll, PTR.EVENTS.DOWN, function(evt) {
+    PTR2.utils.bind(scroll, PTR2.EVENTS.DOWN, function(evt) {
         if (scroll.scrollTop == 0) {
             if (isAndroid) {
                 if ($(el).height() > $(options.scrollContainerFillElement).height()) {
@@ -276,6 +276,7 @@ PTR.init = function(el, options) {
                 $(options.scrollBottomFillElement).height(options.maxPullHeight);
             } else {
                 scroll.scrollTop--;
+                $(options.scrollBottomFillElement).height(options.maxPullHeight);
             }
         }
     });
@@ -283,12 +284,12 @@ PTR.init = function(el, options) {
     var state = 'pulling';
     var state2 = 'dragging';
     // 绑定滚动事件到滚动caontainer
-    PTR.utils.bind(scroll, PTR.EVENTS.MOVE, function(evt) {
+    PTR2.utils.bind(scroll, PTR2.EVENTS.MOVE, function(evt) {
         if (isAndroid) {
             if ($(options.scrollTopFillElement).height() > 0) {
                 var y = options.maxPullHeight - scroll.scrollTop;
                 if (y >= 0) {
-                    PTR.utils.transform2(options.scrollTopElement, 0, 0.5 * y);
+                    PTR2.utils.transform2(options.scrollTopElement, 0, 0.5 * y);
                     options.scrollTopElement.style.opacity = 1; //Math.min(y / options.pullHeight, 1);
                     if (scroll.scrollTop < (options.maxPullHeight - options.pullHeight) && state == 'pulling') {
                         options.pullingDiv.style.display = 'none';
@@ -307,7 +308,7 @@ PTR.init = function(el, options) {
             if ($(options.scrollBottomFillElement).height() > 0) {
                 if (scroll.scrollTop + scroll.offsetHeight >= scroll.scrollHeight - options.maxPullHeight) {
                     var y = options.maxPullHeight - (scroll.scrollHeight - (scroll.scrollTop + scroll.offsetHeight));
-                    PTR.utils.transform2(options.scrollBottomElement, 0, -0.5 * y);
+                    PTR2.utils.transform2(options.scrollBottomElement, 0, -0.5 * y);
                     options.scrollBottomElement.style.opacity = 1; //Math.min(y / options.pullHeight, 1);
                     if (y > options.pullHeight && state2 == 'dragging') {
                         options.pullingDiv2.style.display = 'none';
@@ -325,7 +326,7 @@ PTR.init = function(el, options) {
         } else {
             var y = scroll.scrollTop;
             if (y < 0 && options.scrollTopElement) {
-                PTR.utils.transform2(options.scrollTopElement, 0, -0.5 * y);
+                PTR2.utils.transform2(options.scrollTopElement, 0, -0.5 * y);
                 options.scrollTopElement.style.opacity = 1; //Math.min(-1 * y / options.pullHeight, 1);
 
                 if (y < -options.pullHeight && state == 'pulling') {
@@ -337,9 +338,9 @@ PTR.init = function(el, options) {
                     options.releaseDiv.style.display = 'none';
                     state = 'pulling';
                 }
-            } else if (scroll.scrollTop + scroll.offsetHeight > scroll.scrollHeight && options.scrollBottomElement) {
+            } else if (scroll.scrollTop + scroll.offsetHeight > scroll.scrollHeight - options.maxPullHeight && options.scrollBottomElement) {
                 var _y = scroll.scrollTop + scroll.offsetHeight - scroll.scrollHeight;
-                PTR.utils.transform2(options.scrollBottomElement, 0, -0.5 * _y);
+                PTR2.utils.transform2(options.scrollBottomElement, 0, -0.5 * _y);
                 options.scrollBottomElement.style.opacity = 1; //Math.min(_y / options.dragHeight, 1);
 
                 if (_y > options.dragHeight && state2 == 'dragging') {
@@ -356,8 +357,7 @@ PTR.init = function(el, options) {
     });
 
     // 绑定上拉事件到滚动container
-    PTR.utils.bind(scroll, PTR.EVENTS.UP, function(evt) {
-        resetTopAndBottom();
+    PTR2.utils.bind(scroll, PTR2.EVENTS.UP, function(evt) {
         if (isAndroid) {
             if ($(options.scrollTopFillElement).height() > 0) {
                 if ($(options.scrollTopFillElement).height() >= scroll.scrollTop) {
@@ -386,20 +386,36 @@ PTR.init = function(el, options) {
 
             if ($(options.scrollBottomFillElement).height() > 0) {
                 if (scroll.scrollTop + scroll.offsetHeight >= scroll.scrollHeight - options.maxPullHeight) {
-                    resetTopAndBottom();
-                    $(options.scrollElement).animate({
-                        scrollTop: scroll.scrollTop - (options.maxPullHeight - (scroll.scrollHeight - scroll.offsetHeight - scroll.scrollTop))
-                    }, 400);
-                    setTimeout(function() {
-                        $(options.scrollBottomFillElement).height(0);
-                    }, 500);
-                    setTimeout(function() {
-                        options.pullingDiv2.style.display = '';
-                        options.releaseDiv2.style.display = 'none';
-                    }, 500);
                     if (state2 == 'release') {
                         state2 = 'dragging';
-                        options.onLoadMore.call();
+                        var asy = options.onLoadMore.call();
+                        asy.then(function() {
+                          var text = this.pool.more ? "加载成功！" : "没有更多啦！";
+
+                          $('#scroll-bottom-label').text(text);
+
+                          setTimeout(function(){
+                            resetTopAndBottom();
+                            $(options.scrollElement).animate({
+                                scrollTop: scroll.scrollTop - (options.maxPullHeight - (scroll.scrollHeight - scroll.offsetHeight - scroll.scrollTop))
+                            }, 400);
+
+                            setTimeout(function() {
+                                $(options.scrollBottomFillElement).height(0);
+                            }, 500);
+
+                            setTimeout(function() {
+                                options.pullingDiv2.style.display = '';
+                                options.releaseDiv2.style.display = 'none';
+                            }, 500);
+                            setTimeout(function() {
+                              $('#scroll-bottom-label').text("正在加载！");
+                            }, 500);
+                          }, 500);
+                        });
+                    } else {
+                        resetTopAndBottom();
+                        $(options.scrollBottomFillElement).height(0);
                     }
                 } else {
                     $(options.scrollBottomFillElement).height(0);
@@ -408,8 +424,8 @@ PTR.init = function(el, options) {
         } else {
             var y = scroll.scrollTop;
             if (y < 0 && options.scrollTopElement) {
-                PTR.utils.transition(options.scrollTopElement, 'all', '500ms linear');
-                PTR.utils.transform2(options.scrollTopElement, 0, 0);
+                PTR2.utils.transition(options.scrollTopElement, 'all', '500ms linear');
+                PTR2.utils.transform2(options.scrollTopElement, 0, 0);
                 options.scrollTopElement.style.opacity = 0;
                 setTimeout(function() {
                     options.pullingDiv.style.display = '';
@@ -421,13 +437,29 @@ PTR.init = function(el, options) {
                     options.onRefresh.call();
                 }
             } else if (scroll.scrollTop + scroll.offsetHeight > scroll.scrollHeight && options.scrollBottomElement) {
-                setTimeout(function() {
-                    options.pullingDiv2.style.display = '';
-                    options.releaseDiv2.style.display = 'none';
-                }, 500);
                 if (state2 == 'release') {
                     state2 = 'dragging';
-                    options.onLoadMore.call();
+                    var asy = options.onLoadMore.call();
+                    asy.then(function() {
+                      var text = this.pool.more ? "加载成功！" : "没有更多啦！";
+
+                      $('#scroll-bottom-label').text(text);
+
+                      setTimeout(function(){
+                        resetTopAndBottom();
+                        $(options.scrollBottomFillElement).height(0);
+                        setTimeout(function() {
+                            options.pullingDiv2.style.display = '';
+                            options.releaseDiv2.style.display = 'none';
+                        }, 500);
+                        setTimeout(function() {
+                          $('#scroll-bottom-label').text("正在加载！");
+                        }, 500);
+                      }, 500);
+                    });
+                } else {
+                    resetTopAndBottom();
+                    $(options.scrollBottomFillElement).height(0);
                 }
             }
         }
@@ -435,10 +467,10 @@ PTR.init = function(el, options) {
 
     function resetTopAndBottom() {
       // cubic-bezier(.25,.66,.42,.99)
-        PTR.utils.transition(options.scrollTopElement, 'all', '500ms linear');
-        PTR.utils.transition(options.scrollBottomElement, 'all', '500ms linear');
-        PTR.utils.transform2(options.scrollTopElement, 0, 0);
-        PTR.utils.transform2(options.scrollBottomElement, 0, 0);
+        PTR2.utils.transition(options.scrollTopElement, 'all', '500ms linear');
+        PTR2.utils.transition(options.scrollBottomElement, 'all', '500ms linear');
+        PTR2.utils.transform2(options.scrollTopElement, 0, 0);
+        PTR2.utils.transform2(options.scrollBottomElement, 0, 0);
         if (options.scrollTopElement) options.scrollTopElement.style.opacity = 0;
         if (options.scrollBottomElement) options.scrollBottomElement.style.opacity = 0;
     }

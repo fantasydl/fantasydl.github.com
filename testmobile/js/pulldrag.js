@@ -480,9 +480,9 @@ PTR2.init = function(el, options) {
                 } else {
                     setTimeout(function(){
                         var firstH = $(".scoll-bottom-fill").height();
+                        $(".scoll-bottom-fill").height(0);
                         resetTopAndBottom();
                         var secondH = $(".scoll-bottom-fill").height();
-                        $(".scoll-bottom-fill").height(0);
                         $(".fixed").find("span").text(firstH+' '+secondH);
                     },300)
                 }

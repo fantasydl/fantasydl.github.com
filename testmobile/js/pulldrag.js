@@ -445,7 +445,7 @@ PTR2.init = function(el, options) {
                     state2 = 'dragging';
                     $(".fixed").find("span").text("变50！！");
                     $(".scoll-bottom-fill").height(50);
-                    var _y = scroll.scrollHeight - scroll.offsetHeight;
+                    var _y = scroll.scrollHeight - scroll.offsetHeight + 50;
                     $(scroll).scrollTop(_y);
                     var asy = options.onLoadMore.call();
                     

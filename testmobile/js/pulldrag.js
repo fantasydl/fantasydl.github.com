@@ -468,9 +468,9 @@ PTR2.init = function(el, options) {
                       }, 500);
                     });
                 } else {
-                        // $(".scoll-bottom-fill").height(0);
+                    setTimeout(function(){
                         resetTopAndBottom();
-                        $(".fixed").find("span").text('变0！！333');
+                    }, 1000)
                 }
             } else {
                 resetTopAndBottom();

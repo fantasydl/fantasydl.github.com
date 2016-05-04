@@ -418,6 +418,7 @@ PTR2.init = function(el, options) {
                         $(options.scrollBottomFillElement).height(0);
                     }
                 } else {
+                    resetTopAndBottom();
                     $(options.scrollBottomFillElement).height(0);
                 };
             };
@@ -442,9 +443,9 @@ PTR2.init = function(el, options) {
                     var asy = options.onLoadMore.call();
                     
                     asy.then(function() {
-                      var text = this.pool.more ? "加载成功！" : "没有更多啦！";
+                      // var text = this.pool.more ? "加载成功！" : "没有更多啦！";
 
-                      $('#scroll-bottom-label').text(text);
+                      // $('#scroll-bottom-label').text(text);
 
                       setTimeout(function(){
                         resetTopAndBottom();
@@ -462,6 +463,9 @@ PTR2.init = function(el, options) {
                     resetTopAndBottom();
                     $(".scoll-bottom-fill").height(0);
                 }
+            } else {
+                resetTopAndBottom();
+                $(".scoll-bottom-fill").height(0);
             }
         }
     });

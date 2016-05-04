@@ -479,12 +479,10 @@ PTR2.init = function(el, options) {
                     });
                 } else {
                     setTimeout(function(){
-                        var firstH = $(".scoll-bottom-fill").height();
                         // $(".scoll-bottom-fill").height(0);
                         resetTopAndBottom();
-                        var secondH = $(".scoll-bottom-fill").height();
-                        $(".fixed").find("span").text(firstH+' '+secondH);
-                    },300)
+                        $(".fixed").find("span").text('变0！！333');
+                    },200)
                 }
             } else {
                 resetTopAndBottom();

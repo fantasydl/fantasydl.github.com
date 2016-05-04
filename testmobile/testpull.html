@@ -170,7 +170,12 @@
 			$('#container').height(oHeight);
 			PTR2.init(document.querySelector('#container .scrollable'), {
         		onLoadMore: function() {
-        			$(".fixed").find("span").text('上拉刷新中！');
+        			var promise = new Promise(function(resolve, reject) {
+  					setTimeout(function(){
+  						resolve();
+  					},2000);
+				});
+				return promise;
 				}
 			})
 		});

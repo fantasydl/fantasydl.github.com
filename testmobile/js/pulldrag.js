@@ -446,7 +446,7 @@ PTR2.init = function(el, options) {
                     var _y = $(scroll).scrollTop() - (scroll.scrollHeight - scroll.offsetHeight);
                     $(".scoll-bottom-fill").height(_y);
                     $(scroll).scrollTop($(scroll).scrollTop());
-                    $(".scoll-bottom-fill").animate({'height':'50px'}, 500, 'linear');
+                    $(".scoll-bottom-fill").animate({'height':'50px'}, 600, 'linear');
                     
 
                     var asy = options.onLoadMore.call();

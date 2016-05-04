@@ -356,7 +356,6 @@ PTR2.init = function(el, options) {
                     options.pullingDiv2.style.display = '';
                     options.releaseDiv2.style.display = 'none';
                     state2 = 'dragging';
-                } else {
                     $(".scoll-bottom-fill").height(0);
                 }
             }

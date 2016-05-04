@@ -468,7 +468,10 @@ PTR2.init = function(el, options) {
                     resetTopAndBottom();
                 }
             } else {
-                resetTopAndBottom();
+                $(".fixed").find("span").text('这是例外！');
+                setTimeout(function(){
+                    $(".fixed").find("span").text('');
+                },1500)
             }
         }
     });

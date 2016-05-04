@@ -240,7 +240,7 @@ PTR2.init = function(el, options) {
         options.scrollBottomElement.style.width = '100%';
         options.scrollBottomElement.style.height = '20px';
         options.scrollBottomElement.style.left = '0px';
-        options.scrollBottomElement.style.color = '#FFF';
+        options.scrollBottomElement.style.color = '#333';
         options.scrollBottomElement.style.lineHeight = '20px';
         options.scrollBottomElement.style.textAlign = 'center';
         options.scrollBottomElement.style.bottom = '-' + (options.scrollBottomElement.offsetHeight / 2) + 'px';
@@ -339,11 +339,11 @@ PTR2.init = function(el, options) {
                 }
             } else if (scroll.scrollTop + scroll.offsetHeight > scroll.scrollHeight && options.scrollBottomElement) {
                 var _y = scroll.scrollTop + scroll.offsetHeight - scroll.scrollHeight;
-                PTR2.utils.transform2(options.scrollBottomElement, 0, -0.5 * _y);
+                PTR2.utils.transform2(options.scrollBottomElement, 0, -0.3 * _y);
                 options.scrollBottomElement.style.opacity = 1; //Math.min(_y / options.dragHeight, 1);
-                $(".scoll-bottom-fill").height(120);
 
                 if (_y > options.dragHeight && state2 == 'dragging') {
+                    $(".scoll-bottom-fill").height(80);
                     options.pullingDiv2.style.display = 'none';
                     options.releaseDiv2.style.display = '';
                     state2 = 'release';
@@ -444,12 +444,12 @@ PTR2.init = function(el, options) {
                     
                     asy.then(function() {
                       // var text = this.pool.more ? "加载成功！" : "没有更多啦！";
+                      var text = "加载成功！";
 
-                      // $('#scroll-bottom-label').text(text);
+                      $('#scroll-bottom-label').text(text);
 
                       setTimeout(function(){
                         resetTopAndBottom();
-                        $(".scoll-bottom-fill").animate({'height':'0px'},500);
                         setTimeout(function() {
                             options.pullingDiv2.style.display = '';
                             options.releaseDiv2.style.display = 'none';
@@ -461,11 +461,9 @@ PTR2.init = function(el, options) {
                     });
                 } else {
                     resetTopAndBottom();
-                    $(".scoll-bottom-fill").animate({'height':'0px'},500);
                 }
             } else {
                 resetTopAndBottom();
-                $(".scoll-bottom-fill").animate({'height':'0px'},500);
             }
         }
     });
@@ -474,6 +472,7 @@ PTR2.init = function(el, options) {
       // cubic-bezier(.25,.66,.42,.99)
         PTR2.utils.transition(options.scrollTopElement, 'all', '500ms linear');
         PTR2.utils.transition(options.scrollBottomElement, 'all', '500ms linear');
+        $(".scoll-bottom-fill").animate({'height':'0px'}, 400);
         PTR2.utils.transform2(options.scrollTopElement, 0, 0);
         PTR2.utils.transform2(options.scrollBottomElement, 0, 0);
         if (options.scrollTopElement) options.scrollTopElement.style.opacity = 0;

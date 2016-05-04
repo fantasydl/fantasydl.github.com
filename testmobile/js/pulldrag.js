@@ -361,7 +361,7 @@ PTR2.init = function(el, options) {
                     $(".scoll-bottom-fill").height(0);
                     $(".fixed").find("span").text('变0！！111');
                 } else {
-                    if(_y <= options.dragHeight && state2 == 'dragging'){
+                    if(state2 == 'dragging'){
                         $(".scoll-bottom-fill").height(0);
                         // $(".fixed").find("span").text('变0！！222');
                     } else {

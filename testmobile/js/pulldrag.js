@@ -278,7 +278,7 @@ PTR2.init = function(el, options) {
                 scroll.scrollTop--;
                 $(".scoll-bottom-fill").height(50);
             }
-        } else {
+        } else if (scroll.scrollTop + scroll.offsetHeight >= scroll.scrollHeight - 15) {
             if (!isAndroid) {
                 $(".scoll-bottom-fill").height(50);
             }

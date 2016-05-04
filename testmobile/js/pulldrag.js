@@ -443,10 +443,9 @@ PTR2.init = function(el, options) {
             } else if (scroll.scrollTop + scroll.offsetHeight > scroll.scrollHeight && options.scrollBottomElement) {
                 if (state2 == 'release') {
                     state2 = 'dragging';
-                    $(".fixed").find("span").text("变50！！");
-                    $(".scoll-bottom-fill").height(50);
-                    var _y = scroll.scrollHeight - scroll.offsetHeight + 50;
-                    $(scroll).scrollTop(_y);
+                    var _y = $(scroll).scrollTop() - (scroll.scrollHeight - scroll.offsetHeight);
+                    $(".scoll-bottom-fill").height(_y);
+                    $(scroll).scrollTop($(scroll).scrollTop());
                     var asy = options.onLoadMore.call();
                     
                     asy.then(function() {

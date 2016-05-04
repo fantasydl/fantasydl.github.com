@@ -275,10 +275,7 @@ PTR2.init = function(el, options) {
             if (isAndroid) {
                 $(options.scrollBottomFillElement).height(options.maxPullHeight);
             } else {
-                console.log(scroll.scrollTop);
                 scroll.scrollTop--;
-                console.log(scroll.scrollTop);
-                $(options.scrollBottomFillElement).height(options.maxPullHeight);
             }
         }
     });
@@ -442,6 +439,7 @@ PTR2.init = function(el, options) {
                 if (state2 == 'release') {
                     state2 = 'dragging';
                     var asy = options.onLoadMore.call();
+                    $(".scoll-bottom-fill").height(120);
                     asy.then(function() {
                       var text = this.pool.more ? "加载成功！" : "没有更多啦！";
 
@@ -449,7 +447,7 @@ PTR2.init = function(el, options) {
 
                       setTimeout(function(){
                         resetTopAndBottom();
-                        $(options.scrollBottomFillElement).height(0);
+                        $(".scoll-bottom-fill").height(0);
                         setTimeout(function() {
                             options.pullingDiv2.style.display = '';
                             options.releaseDiv2.style.display = 'none';
@@ -461,7 +459,7 @@ PTR2.init = function(el, options) {
                     });
                 } else {
                     resetTopAndBottom();
-                    $(options.scrollBottomFillElement).height(0);
+                    $(".scoll-bottom-fill").height(0);
                 }
             }
         }

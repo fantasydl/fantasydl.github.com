@@ -480,10 +480,10 @@ PTR2.init = function(el, options) {
                 } else {
                     setTimeout(function(){
                         var firstH = $(".scoll-bottom-fill").height();
-                        $(".scoll-bottom-fill").height(0);
                         var secondH = $(".scoll-bottom-fill").height();
                         resetTopAndBottom();
-                        $(".fixed").find("span").text(firstH+''+secondH);
+                        $(".scoll-bottom-fill").height(0);
+                        $(".fixed").find("span").text(firstH+' '+secondH);
                     },500)
                 }
             } else {
@@ -497,7 +497,7 @@ PTR2.init = function(el, options) {
       // cubic-bezier(.25,.66,.42,.99)
         PTR2.utils.transition(options.scrollTopElement, 'all', '500ms linear');
         PTR2.utils.transition(options.scrollBottomElement, 'all', '500ms linear');
-        if (!isAndroid && $(".scoll-bottom-fill").height() > 0) $(".scoll-bottom-fill").animate({'height':'0px'}, 500); //$(".fixed").find("span").text('变0！！333');
+        if (!isAndroid && $(".scoll-bottom-fill").height() > 0) $(".scoll-bottom-fill").animate({'height':'0px'}, 400); //$(".fixed").find("span").text('变0！！333');
         PTR2.utils.transform2(options.scrollTopElement, 0, 0);
         PTR2.utils.transform2(options.scrollBottomElement, 0, 0);
         if (options.scrollTopElement) options.scrollTopElement.style.opacity = 0;

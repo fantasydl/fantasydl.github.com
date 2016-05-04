@@ -480,10 +480,12 @@ PTR2.init = function(el, options) {
                 } else {
                     $(".scoll-bottom-fill").animate({'height':'0px'}, 100);
                     resetTopAndBottom();
+                    $(".fixed").find("span").text('变0！！333');
                 }
             } else {
                 $(".scoll-bottom-fill").animate({'height':'0px'}, 100);
                 resetTopAndBottom();
+                $(".fixed").find("span").text('变0！！444');
             }
         }
     });

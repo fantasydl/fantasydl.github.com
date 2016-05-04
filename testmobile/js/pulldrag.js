@@ -278,6 +278,11 @@ PTR2.init = function(el, options) {
                 scroll.scrollTop--;
                 $(".scoll-bottom-fill").height(70);
             }
+        } else {
+            $(".fixed").find("span").text("这是例外！");
+            setTimeout(function(){
+                $(".fixed").find("span").text(" ");
+            },1500);
         }
     });
 

@@ -478,12 +478,12 @@ PTR2.init = function(el, options) {
                       }, 500);
                     });
                 } else {
-                    $(".scoll-bottom-fill").animate({'height':'0px'}, 0);
+                    $(".scoll-bottom-fill").animate({'height':'0px'}, 10);
                     resetTopAndBottom();
                     $(".fixed").find("span").text('变0！！333');
                 }
             } else {
-                $(".scoll-bottom-fill").animate({'height':'0px'}, 0);
+                $(".scoll-bottom-fill").animate({'height':'0px'}, 10);
                 resetTopAndBottom();
                 $(".fixed").find("span").text('变0！！333');
             }

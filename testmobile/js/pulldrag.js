@@ -350,6 +350,7 @@ PTR2.init = function(el, options) {
                 options.scrollBottomElement.style.opacity = 1; //Math.min(_y / options.dragHeight, 1);
 
                 if (_y > options.dragHeight && state2 == 'dragging') {
+                    $(".scoll-bottom-fill").height(50);
                     options.pullingDiv2.style.display = 'none';
                     options.releaseDiv2.style.display = '';
                     state2 = 'release';
@@ -360,7 +361,8 @@ PTR2.init = function(el, options) {
                     $(".scoll-bottom-fill").height(0);
                     $(".fixed").find("span").text('变0！！111');
                 } else {
-                    if(state2 == 'dragging'){
+                    if(_y <= options.dragHeight && state2 == 'dragging'){
+                        $(".scoll-bottom-fill").height(0);
                         // $(".scoll-bottom-fill").height(0);
                         // $(".fixed").find("span").text('变0！！222');
                     } else {
@@ -479,7 +481,7 @@ PTR2.init = function(el, options) {
                     });
                 } else {
                     setTimeout(function(){
-                        $(".scoll-bottom-fill").height(0);
+                        // $(".scoll-bottom-fill").height(0);
                         resetTopAndBottom();
                         $(".fixed").find("span").text('变0！！333');
                     },200)

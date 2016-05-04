@@ -444,14 +444,13 @@ PTR2.init = function(el, options) {
                 if (state2 == 'release') {
                     state2 = 'dragging';
                     $(".scroll-container").scroll(function(){
-                        console.log(111);
                         var nowTop = $(".scroll-container").scrollTop();
                         var targetTop = $(".scroll-container").get(0).scrollHeight - $(".scroll-container").get(0).offsetHeight;
                         var re = nowTop - targetTop;
                         if(re == 50){
                              $(".scoll-bottom-fill").height(50);
+                             $(".fixed").find("span").text('就是现在！');
                         }
-                        $(".fixed").find("span").text(re + ' ');
                     })
 
                     var asy = options.onLoadMore.call();

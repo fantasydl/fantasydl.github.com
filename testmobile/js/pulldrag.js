@@ -468,11 +468,9 @@ PTR2.init = function(el, options) {
                       }, 500);
                     });
                 } else {
-                    setTimeout(function(){
                         // $(".scoll-bottom-fill").height(0);
                         resetTopAndBottom();
                         $(".fixed").find("span").text('变0！！333');
-                    },500)
                 }
             } else {
                 resetTopAndBottom();

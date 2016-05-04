@@ -478,11 +478,11 @@ PTR2.init = function(el, options) {
                       }, 500);
                     });
                 } else {
-                    $(".scoll-bottom-fill").height(0);
+                    $(".scoll-bottom-fill").animate({'height':'0px'}, 100);
                     resetTopAndBottom();
                 }
             } else {
-                $(".scoll-bottom-fill").height(0);
+                $(".scoll-bottom-fill").animate({'height':'0px'}, 100);
                 resetTopAndBottom();
             }
         }

@@ -440,7 +440,7 @@ PTR2.init = function(el, options) {
             } else if (scroll.scrollTop + scroll.offsetHeight > scroll.scrollHeight && options.scrollBottomElement) {
                 if (state2 == 'release') {
                     state2 = 'dragging';
-                    $(".scoll-bottom-fill").height(70);
+                    $(".scoll-bottom-fill").animate({'height':'70px'},200);
                     var asy = options.onLoadMore.call();
                     
                     asy.then(function() {

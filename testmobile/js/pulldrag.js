@@ -271,7 +271,7 @@ PTR2.init = function(el, options) {
                 };
                 scroll.scrollTop++;
             }
-        } else if (scroll.scrollTop + scroll.offsetHeight >= scroll.scrollHeight - 5) {
+        } else if (scroll.scrollTop + scroll.offsetHeight == scroll.scrollHeight) {
             if (isAndroid) {
                 $(options.scrollBottomFillElement).height(options.maxPullHeight);
             } else {
@@ -479,6 +479,7 @@ PTR2.init = function(el, options) {
                     });
                 } else {
                     setTimeout(function(){
+                        $(".scoll-bottom-fill").height(0);
                         resetTopAndBottom();
                         $(".fixed").find("span").text('变0！！333');
                     },500)

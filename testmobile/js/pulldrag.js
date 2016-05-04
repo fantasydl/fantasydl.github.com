@@ -240,7 +240,7 @@ PTR2.init = function(el, options) {
         options.scrollBottomElement.style.width = '100%';
         options.scrollBottomElement.style.height = '20px';
         options.scrollBottomElement.style.left = '0px';
-        options.scrollBottomElement.style.color = '#333';
+        options.scrollBottomElement.style.color = '#FFF';
         options.scrollBottomElement.style.lineHeight = '20px';
         options.scrollBottomElement.style.textAlign = 'center';
         options.scrollBottomElement.style.bottom = '-' + (options.scrollBottomElement.offsetHeight / 2) + 'px';
@@ -275,7 +275,9 @@ PTR2.init = function(el, options) {
             if (isAndroid) {
                 $(options.scrollBottomFillElement).height(options.maxPullHeight);
             } else {
+                console.log(scroll.scrollTop);
                 scroll.scrollTop--;
+                console.log(scroll.scrollTop);
                 $(options.scrollBottomFillElement).height(options.maxPullHeight);
             }
         }
@@ -338,7 +340,7 @@ PTR2.init = function(el, options) {
                     options.releaseDiv.style.display = 'none';
                     state = 'pulling';
                 }
-            } else if (scroll.scrollTop + scroll.offsetHeight > scroll.scrollHeight - options.maxPullHeight && options.scrollBottomElement) {
+            } else if (scroll.scrollTop + scroll.offsetHeight > scroll.scrollHeight && options.scrollBottomElement) {
                 var _y = scroll.scrollTop + scroll.offsetHeight - scroll.scrollHeight;
                 PTR2.utils.transform2(options.scrollBottomElement, 0, -0.5 * _y);
                 options.scrollBottomElement.style.opacity = 1; //Math.min(_y / options.dragHeight, 1);

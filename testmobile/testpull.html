@@ -172,6 +172,8 @@
 			PTR2.init(document.querySelector('#container .scrollable'), {
         		onLoadMore: function() {
         			var promise = new Promise(function(resolve, reject) {
+        					var self = this;
+        					console.log(self);
   						setTimeout(function(){
   							resolve(123);
   						},1000);

@@ -350,12 +350,10 @@ PTR2.init = function(el, options) {
                     options.pullingDiv2.style.display = 'none';
                     options.releaseDiv2.style.display = '';
                     state2 = 'release';
-                    $(".scoll-bottom-fill").hide().height(45);
                 } else if (_y <= options.dragHeight && state2 == 'release') {
                     options.pullingDiv2.style.display = '';
                     options.releaseDiv2.style.display = 'none';
                     state2 = 'dragging';
-                    $(".scoll-bottom-fill").height(0).show();
                 }
             }
         }
@@ -445,7 +443,16 @@ PTR2.init = function(el, options) {
             } else if (scroll.scrollTop + scroll.offsetHeight > scroll.scrollHeight && options.scrollBottomElement) {
                 if (state2 == 'release') {
                     state2 = 'dragging';
-                    $(".scoll-bottom-fill").show();
+                    $(".scroll-container").scroll(function(){
+                        var sContent = $(".scroll-container");
+                        var nowTop = sContent.scrollTop();
+                        var targetTop = sContent.get(0).scrollHeight - sContent.get(0).offsetHeight;
+                        var re = nowTop - targetTop;
+                        if(re <= 55){
+                            $(".scoll-bottom-fill").height(re - 1.7*(55 - re));
+                            sContent.unbind('scroll');
+                        }
+                    })
 
                     var asy = options.onLoadMore.call();
                     

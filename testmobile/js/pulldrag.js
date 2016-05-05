@@ -475,6 +475,7 @@ PTR2.init = function(el, options) {
                       }, 500);
                     });
                 } else {
+                    options.scrollBottomElement.style.opacity = 0;
                     resetTopAndBottom();
                     $(".fixed").find("span").text('1111');
                 }

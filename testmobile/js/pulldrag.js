@@ -354,6 +354,8 @@ PTR2.init = function(el, options) {
                     options.pullingDiv2.style.display = '';
                     options.releaseDiv2.style.display = 'none';
                     state2 = 'dragging';
+                } else if (_y <= options.dragHeight && state2 == 'dragging') {
+                    resetTopAndBottom();
                 }
             }
         }
@@ -475,10 +477,10 @@ PTR2.init = function(el, options) {
                       }, 500);
                     });
                 } else {
-                    setTimeout(function(){
-                        resetTopAndBottom();
-                    },110);
+                    resetTopAndBottom();
                 }
+            } else {
+                resetTopAndBottom();
             }
         }
     });

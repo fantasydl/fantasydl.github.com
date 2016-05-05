@@ -478,9 +478,6 @@ PTR2.init = function(el, options) {
                     resetTopAndBottom();
                     $(".fixed").find("span").text('1111');
                 }
-            } else {
-                resetTopAndBottom();
-                $(".fixed").find("span").text('2222');
             }
         }
     });

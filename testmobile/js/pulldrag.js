@@ -448,7 +448,7 @@ PTR2.init = function(el, options) {
                         var targetTop = $(".scroll-container").get(0).scrollHeight - $(".scroll-container").get(0).offsetHeight;
                         var re = nowTop - targetTop;
                         if(re <= 55){
-                            $(".scoll-bottom-fill").height(re - (55 - re));
+                            $(".scoll-bottom-fill").height(re - 2*(55 - re));
                             $(".scroll-container").unbind('scroll');
                         }
                         $(".fixed").find("span").text('现在：' + re);

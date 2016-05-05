@@ -450,7 +450,7 @@ PTR2.init = function(el, options) {
                         if(re <= 45){
                             $(".scroll-container").unbind('scroll');
                             $(".fixed").find("span").text('现在：' + re);
-                            $(".scoll-bottom-fill").height(re - 2*(45 - re));
+                            $(".scoll-bottom-fill").height(re - 1.5*(45 - re));
                         }
                     })
 

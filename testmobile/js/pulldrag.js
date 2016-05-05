@@ -354,8 +354,6 @@ PTR2.init = function(el, options) {
                     options.pullingDiv2.style.display = '';
                     options.releaseDiv2.style.display = 'none';
                     state2 = 'dragging';
-                } else if (_y <= options.dragHeight && state2 == 'dragging') {
-                     resetTopAndBottom();
                 }
             }
         }
@@ -446,13 +444,13 @@ PTR2.init = function(el, options) {
                 if (state2 == 'release') {
                     state2 = 'dragging';
                     $(".scroll-container").scroll(function(){
-                        var nowTop = $(".scroll-container").scrollTop();
-                        var targetTop = $(".scroll-container").get(0).scrollHeight - $(".scroll-container").get(0).offsetHeight;
+                        var sContent = $(".scroll-container");
+                        var nowTop = sContent.scrollTop();
+                        var targetTop = sContent.get(0).scrollHeight - sContent.get(0).offsetHeight;
                         var re = nowTop - targetTop;
-                        if(re <= 50){
-                            $(".scroll-container").unbind('scroll');
-                            $(".fixed").find("span").text('现在：' + re);
-                            $(".scoll-bottom-fill").height(re - 1.7*(50 - re));
+                        if(re <= 55){
+                            $(".scoll-bottom-fill").height(re);
+                            sContent.unbind('scroll');
                         }
                     })
 
@@ -476,6 +474,8 @@ PTR2.init = function(el, options) {
                         }, 500);
                       }, 500);
                     });
+                } else {
+                    resetTopAndBottom();
                 }
             }
         }

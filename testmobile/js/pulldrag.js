@@ -475,7 +475,9 @@ PTR2.init = function(el, options) {
                       }, 500);
                     });
                 } else {
-                    resetTopAndBottom();
+                    setTimeout(function(){
+                        resetTopAndBottom();
+                    },110);
                 }
             }
         }

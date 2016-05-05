@@ -447,7 +447,7 @@ PTR2.init = function(el, options) {
                         var nowTop = $(".scroll-container").scrollTop();
                         var targetTop = $(".scroll-container").get(0).scrollHeight - $(".scroll-container").get(0).offsetHeight;
                         var re = nowTop - targetTop;
-                        if(re <= 73){
+                        if(re <= 68){
                              $(".scoll-bottom-fill").height(50);
                              $(".fixed").find("span").text('就是现在！');
                              $(".scroll-container").unbind('scroll');

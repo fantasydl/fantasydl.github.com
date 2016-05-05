@@ -276,11 +276,11 @@ PTR2.init = function(el, options) {
                 $(options.scrollBottomFillElement).height(options.maxPullHeight);
             } else {
                 scroll.scrollTop--;
-                $(".scoll-bottom-fill").height(options.dragHeight);
+                $(".scoll-bottom-fill").height(options.dragHeight + 1);
             }
         } else if (scroll.scrollTop + scroll.offsetHeight >= scroll.scrollHeight - 15) {
             if (!isAndroid) {
-                $(".scoll-bottom-fill").height(options.dragHeight);
+                $(".scoll-bottom-fill").height(options.dragHeight + 1);
             }
         }
     });

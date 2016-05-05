@@ -478,6 +478,7 @@ PTR2.init = function(el, options) {
                 }
             } else {
                 resetTopAndBottom();
+                $(".fixed").find("span").text('2222');
             }
         }
     });

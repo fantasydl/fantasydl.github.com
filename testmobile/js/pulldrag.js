@@ -449,9 +449,9 @@ PTR2.init = function(el, options) {
                         var re = nowTop - targetTop;
                         if(re <= 55){
                              $(".scoll-bottom-fill").height(40);
-                             $(".fixed").find("span").text('就是现在！');
                              $(".scroll-container").unbind('scroll');
                         }
+                        $(".fixed").find("span").text('现在：' + re);
                     })
 
                     var asy = options.onLoadMore.call();

@@ -343,7 +343,7 @@ PTR2.init = function(el, options) {
                 }
             } else if (scroll.scrollTop + scroll.offsetHeight > scroll.scrollHeight && options.scrollBottomElement) {
                 var _y = scroll.scrollTop + scroll.offsetHeight - scroll.scrollHeight;
-                PTR2.utils.transform2(options.scrollBottomElement, 0, -25);
+                PTR2.utils.transform2(options.scrollBottomElement, 0, -24);
                 options.scrollBottomElement.style.opacity = 1; //Math.min(_y / options.dragHeight, 1);
 
                 if (_y > options.dragHeight && state2 == 'dragging') {
@@ -448,7 +448,7 @@ PTR2.init = function(el, options) {
                         var targetTop = $(".scroll-container").get(0).scrollHeight - $(".scroll-container").get(0).offsetHeight;
                         var re = nowTop - targetTop;
                         if(re <= 69){
-                             $(".scoll-bottom-fill").height(52);
+                             $(".scoll-bottom-fill").height(48);
                              $(".fixed").find("span").text('就是现在！');
                              $(".scroll-container").unbind('scroll');
                         }

@@ -477,7 +477,8 @@ PTR2.init = function(el, options) {
                 } else {
                     setTimeout(function(){
                         resetTopAndBottom();
-                        $(".fixed").find("span").text('1111');
+                        var rhs = $(".scoll-bottom-fill").height();
+                        $(".fixed").find("span").text('' + rhs);
                     },150)
                 }
             }

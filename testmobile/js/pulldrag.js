@@ -276,11 +276,10 @@ PTR2.init = function(el, options) {
                 $(options.scrollBottomFillElement).height(options.maxPullHeight);
             } else {
                 scroll.scrollTop--;
-                $(".scoll-bottom-fill").height(options.dragHeight + 1);
             }
         } else if (scroll.scrollTop + scroll.offsetHeight >= scroll.scrollHeight - 15) {
             if (!isAndroid) {
-                $(".scoll-bottom-fill").height(options.dragHeight + 1);
+                scroll.scrollTop--;
             }
         }
     });
@@ -444,16 +443,16 @@ PTR2.init = function(el, options) {
             } else if (scroll.scrollTop + scroll.offsetHeight > scroll.scrollHeight && options.scrollBottomElement) {
                 if (state2 == 'release') {
                     state2 = 'dragging';
-                    // $(".scroll-container").scroll(function(){
-                    //     var nowTop = $(".scroll-container").scrollTop();
-                    //     var targetTop = $(".scroll-container").get(0).scrollHeight - $(".scroll-container").get(0).offsetHeight;
-                    //     var re = nowTop - targetTop;
-                    //     if(re <= 55){
-                    //         $(".scoll-bottom-fill").height(re - (55 - re));
-                    //         $(".scroll-container").unbind('scroll');
-                    //     }
-                    //     $(".fixed").find("span").text('现在：' + re);
-                    // })
+                    $(".scroll-container").scroll(function(){
+                        var nowTop = $(".scroll-container").scrollTop();
+                        var targetTop = $(".scroll-container").get(0).scrollHeight - $(".scroll-container").get(0).offsetHeight;
+                        var re = nowTop - targetTop;
+                        if(re <= 55){
+                            $(".scoll-bottom-fill").height(re - (55 - re));
+                            $(".scroll-container").unbind('scroll');
+                        }
+                        $(".fixed").find("span").text('现在：' + re);
+                    })
 
                     var asy = options.onLoadMore.call();
                     

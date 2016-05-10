@@ -484,7 +484,7 @@ PTR2.init = function(el, options) {
         //     PTR2.utils.transition(options.scrollBottomFillElement, 'height', '250ms linear');
         //     options.scrollBottomFillElement.style.height = '0px';
         // }
-        setTimeout(function(){options.scrollBottomFillElement.style.height = '0px';},150);
+        setTimeout(function(){options.scrollBottomFillElement.style.height = '0px';},100);
         PTR2.utils.transform2(options.scrollTopElement, 0, 0);
         PTR2.utils.transform2(options.scrollBottomElement, 0, 0);
         if (options.scrollTopElement) options.scrollTopElement.style.opacity = 0;

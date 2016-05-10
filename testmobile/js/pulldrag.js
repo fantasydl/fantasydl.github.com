@@ -443,8 +443,8 @@ PTR2.init = function(el, options) {
             } else if (scroll.scrollTop + scroll.offsetHeight > scroll.scrollHeight && options.scrollBottomElement) {
                 if (state2 == 'release') {
                     state2 = 'dragging';
-
-                    $(".scoll-bottom-fill").height(45);
+                    PTR2.utils.transition(options.scrollBottomFillElement, 'all', '0ms linear');
+                    options.scrollBottomFillElement.style.height = '45px';
 
                     var asy = options.onLoadMore.call();
                     
@@ -479,8 +479,8 @@ PTR2.init = function(el, options) {
         PTR2.utils.transition(options.scrollTopElement, 'all', '500ms linear');
         PTR2.utils.transition(options.scrollBottomElement, 'all', '500ms linear');
         if (!isAndroid && $(".scoll-bottom-fill").height() > 0) {
-            PTR2.utils.transition(options.scrollBottomFillElement, 'height', '400ms linear');
-            $(".scoll-bottom-fill").height(0);
+            PTR2.utils.transition(options.scrollBottomFillElement, 'height', '250ms linear');
+            options.scrollBottomFillElement.style.height = '0px';
         }
         PTR2.utils.transform2(options.scrollTopElement, 0, 0);
         PTR2.utils.transform2(options.scrollBottomElement, 0, 0);

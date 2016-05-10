@@ -446,7 +446,7 @@ PTR2.init = function(el, options) {
                     // PTR2.utils.transition(options.scrollBottomFillElement, 'all', '0ms linear');
                     setTimeout(function(){
                         options.scrollBottomFillElement.style.height = '45px';
-                    },80);
+                    },85);
 
                     var asy = options.onLoadMore.call();
                     
@@ -483,7 +483,7 @@ PTR2.init = function(el, options) {
         if (!isAndroid && $(".scoll-bottom-fill").height() > 0) {
             // PTR2.utils.transition(options.scrollBottomFillElement, 'height', '250ms linear');
             // options.scrollBottomFillElement.style.height = '0px';
-            setTimeout(function(){options.scrollBottomFillElement.style.height = '0px';},100);
+            setTimeout(function(){options.scrollBottomFillElement.style.height = '0px';},125);
         }
         PTR2.utils.transform2(options.scrollTopElement, 0, 0);
         PTR2.utils.transform2(options.scrollBottomElement, 0, 0);

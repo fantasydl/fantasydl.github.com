@@ -443,8 +443,10 @@ PTR2.init = function(el, options) {
             } else if (scroll.scrollTop + scroll.offsetHeight > scroll.scrollHeight && options.scrollBottomElement) {
                 if (state2 == 'release') {
                     state2 = 'dragging';
-                    PTR2.utils.transition(options.scrollBottomFillElement, 'all', '0ms linear');
-                    options.scrollBottomFillElement.style.height = '45px';
+                    // PTR2.utils.transition(options.scrollBottomFillElement, 'all', '0ms linear');
+                    setTimeout(function(){
+                        options.scrollBottomFillElement.style.height = '45px';
+                    },50);
 
                     var asy = options.onLoadMore.call();
                     

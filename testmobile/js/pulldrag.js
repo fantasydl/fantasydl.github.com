@@ -446,7 +446,7 @@ PTR2.init = function(el, options) {
                     // PTR2.utils.transition(options.scrollBottomFillElement, 'all', '0ms linear');
                     setTimeout(function(){
                         options.scrollBottomFillElement.style.height = '45px';
-                    },40);
+                    },80);
 
                     var asy = options.onLoadMore.call();
                     

@@ -443,16 +443,8 @@ PTR2.init = function(el, options) {
             } else if (scroll.scrollTop + scroll.offsetHeight > scroll.scrollHeight && options.scrollBottomElement) {
                 if (state2 == 'release') {
                     state2 = 'dragging';
-                    $(".scroll-container").scroll(function(){
-                        var sContent = $(".scroll-container");
-                        var nowTop = sContent.scrollTop();
-                        var targetTop = sContent.get(0).scrollHeight - sContent.get(0).offsetHeight;
-                        var re = nowTop - targetTop;
-                        if(re <= 55){
-                            $(".scoll-bottom-fill").height(re - 1.7*(55 - re));
-                            sContent.unbind('scroll');
-                        }
-                    })
+
+                    $(".scoll-bottom-fill").height(45);
 
                     var asy = options.onLoadMore.call();
                     
@@ -464,7 +456,6 @@ PTR2.init = function(el, options) {
 
                       setTimeout(function(){
                         resetTopAndBottom();
-                        $(".scoll-bottom-fill").animate({'height':'0px'}, 400, 'linear');
                         setTimeout(function() {
                             options.pullingDiv2.style.display = '';
                             options.releaseDiv2.style.display = 'none';
@@ -487,6 +478,10 @@ PTR2.init = function(el, options) {
       // cubic-bezier(.25,.66,.42,.99)
         PTR2.utils.transition(options.scrollTopElement, 'all', '500ms linear');
         PTR2.utils.transition(options.scrollBottomElement, 'all', '500ms linear');
+        if (!isAndroid && $(".scoll-bottom-fill").height() > 0) {
+            PTR2.utils.transition(options.scrollBottomFillElement, 'height', '400ms linear');
+            $(".scoll-bottom-fill").height(0);
+        }
         PTR2.utils.transform2(options.scrollTopElement, 0, 0);
         PTR2.utils.transform2(options.scrollBottomElement, 0, 0);
         if (options.scrollTopElement) options.scrollTopElement.style.opacity = 0;

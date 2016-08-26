@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>send</title>
+	<style type="text/css">
+		input {
+			width: 200px;
+			height: 20px;
+			font-size: 14px;
+			line-height: 20px;
+		}
+	</style>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+	<input type="text" id="inputTest" />
+	<div id="showCode"></div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#inputTest').focus(function() {
+				$(document).bind('keydown',function(e) {
+					console.log(e);
+					console.log(e.keyCode);
+					var text = $('#showCode').text() + "\n";
+					$('#showCode').text(text + e.keyCode);
+				});
+			});
+		});
+	</script>
+</body>
+</html>
